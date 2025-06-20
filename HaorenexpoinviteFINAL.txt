@@ -1,0 +1,919 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Join Haoren Fragrances Expo 2025 in Nairobi, Kenya on July 8. Discover unique scents, craft custom fragrances, and meet expert perfumers at KICC.">
+    <meta name="keywords" content="Haoren Fragrances, Expo 2025, Nairobi, KICC, perfume, scent, Kenya">
+    <meta property="og:title" content="Haoren Fragrances Expo 2025">
+    <meta property="og:description" content="Experience AI-driven perfumery at Haoren Fragrances Expo 2025 in Nairobi. RSVP now for July 8 at KICC!">
+    <meta property="og:image" content="https://haorenaf.com/assets/expo-poster.jpg">
+    <meta property="og:url" content="https://haorenaf.com/haoren-expo">
+    <meta property="og:type" content="website">
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:image:alt" content="Haoren Fragrances Expo Poster">
+    <title>Haoren Fragrances Expo 2025</title>
+    <link rel="preload" href="https://haorenaf.com/assets/logo.png" as="image">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.6.0/css/all.min.css" integrity="sha512-Kc323vGBEqzTmouAECnVceyQqyqdsSiqLQISBL29aUW4U/M7pSPA/gEUZQqv1cwx4OnYxTxve5UMg5GT6L4JJg==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <link rel="preload" href="https://fonts.googleapis.com/css2?family=Montserrat:wght@700&family=Poppins&display=swap" as="style">
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@700&family=Poppins&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --padding-sm: .5rem;
+            --border-radius: .5rem;
+            --primary-color: #8B4513;
+            --secondary-color: #A0522D;
+            --bg-light: #FFF8F0;
+            --text-dark: #333;
+            --shadow: 0 2px 8px rgba(0,0,0,.1);
+            --transition: all .3s ease;
+            --nav-height: 4rem;
+        }
+        *,*::before,*::after{box-sizing:border-box}
+        body{font-family:'Poppins',sans-serif;margin:0;padding:0;background:#FFF;color:var(--text-dark);font-size:1rem;line-height:1.5;scroll-behavior:smooth}
+        nav{position:fixed;top:0;width:100%;background:var(--bg-light);z-index:1000;padding:.25rem .5rem;box-shadow:var(--shadow);height:var(--nav-height)}
+        .nav-content{display:flex;justify-content:space-between;align-items:center;max-width:95vw;margin:0 auto}
+        .logo-holder{width:2.5rem;height:2.5rem}
+        .logo-holder img{width:100%;height:100%;object-fit:contain;display:block}
+        .menu-toggle{display:none;background:none;border:none;font-size:1.5rem;color:var(--primary-color);cursor:pointer}
+        .nav-links{display:flex;gap:.5rem}
+        .nav-links a{color:var(--primary-color);text-decoration:none;font-weight:600;padding:.25rem;font-size:.9rem;transition:var(--transition)}
+        .nav-links a:hover,.nav-links a:focus{color:var(--secondary-color);outline:2px solid var(--primary-color)}
+        main{max-width:95vw;margin:5rem auto 1rem;display:flex;flex-direction:column;align-items:center}
+        section{width:100%;min-height:40vh;background:var(--bg-light);padding:var(--padding-sm);margin-bottom:.5rem;border-radius:var(--border-radius);box-shadow:var(--shadow);display:flex;flex-direction:column;justify-content:center;align-items:center}
+        .content{padding:var(--padding-sm);background:rgba(255,255,255,.95);border-radius:var(--border-radius);width:100%;max-width:90vw;max-height:85vh;overflow:auto;text-align:center}
+        h1,h2,h3{font-family:'Montserrat',sans-serif;color:var(--primary-color);margin:.5rem 0}
+        h1{font-size:1.75rem}h2{font-size:1.25rem}h3{font-size:1rem}
+        p{margin:.5rem 0;overflow-wrap:break-word}
+        .header-section{position:relative;text-align:center}
+        .header-section .image-holder{position:absolute;top:0;left:0;width:100%;height:100%;z-index:-1;animation:fadeIn 2s ease-in forwards}
+        @keyframes fadeIn{0%{opacity:0}100%{opacity:.7}}
+        .header-section .image-holder img{width:100%;height:100%;object-fit:cover;border-radius:var(--border-radius)}
+        .intro-section .event-details{text-align:center;margin:0 auto}
+        .what-to-expect{display:flex;flex-direction:row;justify-content:space-between;align-items:flex-start;width:100%;gap:.5rem;overflow:hidden}
+        .booth-image-holder{flex:0 0 auto;width:12rem;height:12rem;margin:.25rem;order:2;margin-left:auto}
+        .expect-text{flex:1;text-align:left;padding:.25rem;order:1}
+        .what-to-expect ul{padding:0;margin:.25rem 0;list-style:none;font-size:.8rem}
+        .what-to-expect li{margin-bottom:.25rem}
+        .what-to-expect li p{margin:0;font-size:.75rem}
+        .booth-image-holder img{width:100%;height:100%;object-fit:cover;border-radius:var(--border-radius)}
+        .about-us img{width:18.75rem;height:18.75rem;object-fit:cover;border-radius:var(--border-radius);margin:0 auto;display:block}
+        .new-offices iframe{width:100%;max-width:37.5rem;height:15rem;border-radius:var(--border-radius);border:none}
+        .new-offices .fallback-message{color:var(--secondary-color);font-size:.9rem;text-align:center}
+        .quiz{text-align:center;padding:1rem;max-width:40rem;margin:0 auto}
+        .quiz-statement{font-size:.9rem;color:var(--primary-color);font-weight:bold;margin-bottom:1rem;overflow-wrap:break-word}
+        /* Removed carousel-specific styles */
+        /* .carousel{position:relative;overflow:hidden;width:100%} */
+        /* .carousel-container{display:flex;transition:transform .5s ease;width:100%;will-change:transform} */
+        /* .carousel-slide{flex:0 0 100%;padding:.5rem;display:flex;flex-direction:column;align-items:center;min-height:12rem} */
+        /* .carousel-slide p{margin-bottom:1rem;font-size:.9rem;overflow-wrap:break-word} */
+        .knowledge-question,.signature-question{display:none}
+        .knowledge-question.active,.signature-question.active{display:flex}
+        #signatureQuestions .signature-question {
+            flex-direction: column;
+            align-items: center;
+            min-height: 12rem;
+            padding: .5rem;
+        }
+        #signatureQuestions .signature-question p {
+            margin-bottom: 1rem;
+            font-size: .9rem;
+            overflow-wrap: break-word;
+        }
+        #signatureQuestions .carousel-progress {
+            font-size: .85rem;
+            color: var(--primary-color);
+            margin-top: .5rem;
+        }
+        .option-buttons{display:grid;grid-template-columns:repeat(auto-fit,minmax(8rem,1fr));gap:.75rem;margin:.75rem 0;width:100%}
+        .option-buttons button,.ingredient{padding:.5rem;border:1px solid var(--primary-color);border-radius:var(--border-radius);background:#FFF;cursor:pointer;font-size:.85rem;transition:var(--transition);text-align:center;min-height:2.5rem;overflow-wrap:break-word}
+        .option-buttons button:hover,.ingredient:hover,.option-buttons button:focus,.ingredient:focus{background:var(--primary-color);color:#FFF;outline:none}
+        .option-buttons button.selected,.ingredient.selected{background:var(--primary-color);color:#FFF}
+        .quiz-buttons{display:flex;justify-content:center;gap:.75rem;margin-top:1rem}
+        .quiz-buttons button,.rsvp-button,#retakeFindQuiz,#retakeMakeQuiz,#retakeKnowledgeQuiz{background:var(--primary-color);color:#FFF;padding:.5rem 1rem;border:none;border-radius:var(--border-radius);cursor:pointer;font-size:.9rem;transition:var(--transition);box-shadow:var(--shadow)}
+        .quiz-buttons button:hover,.rsvp-button:hover,#retakeFindQuiz:hover,#retakeMakeQuiz:hover,#retakeKnowledgeQuiz:hover,.quiz-buttons button:focus,.rsvp-button:focus,#retakeFindQuiz:focus,#retakeMakeQuiz:focus,#retakeKnowledgeQuiz:focus{background:var(--secondary-color);transform:translateY(-2px);outline:none}
+        .quiz-buttons button:disabled{background:#ccc;cursor:not-allowed}
+        .ingredient-list{display:grid;grid-template-columns:repeat(5,1fr);grid-template-rows:repeat(2,auto);gap:.5rem;margin:.75rem 0}
+        .gallery-content{display:grid;grid-template-columns:repeat(4,1fr);grid-template-rows:repeat(2,auto);gap:.5rem;padding:var(--padding-sm)}
+        .gallery img{width:100%;height:6rem;object-fit:cover;border-radius:.3125rem;transition:var(--transition);cursor:pointer}
+        .gallery .scent-label{display:block;text-align:center;font-size:.75rem;color:var(--primary-color);margin-top:.25rem}
+        .modal{display:none;position:fixed;top:0;left:0;width:100%;height:100%;background:rgba(0,0,0,.7);z-index:1000;justify-content:center;align-items:center;overflow:auto}
+        .modal-content{background:var(--bg-light);padding:1rem;border-radius:var(--border-radius);max-width:25rem;text-align:center;position:relative;box-shadow:var(--shadow)}
+        .modal-content img{width:100%;max-width:12rem;height:auto;border-radius:var(--border-radius);margin-bottom:1rem}
+        .modal-content .close{position:absolute;top:.5rem;right:.5rem;font-size:1.5rem;color:var(--primary-color);cursor:pointer;background:none;border:none;transition:var(--transition)}
+        .modal-content .close:hover,.modal-content .close:focus{color:var(--secondary-color);outline:none}
+        .modal-content p{font-size:.85rem;margin:.5rem 0}
+        .rsvp-form input{display:block;width:100%;max-width:15rem;margin:.5rem auto;padding:.5rem;border:1px solid var(--primary-color);border-radius:var(--border-radius);font-size:.9rem}
+        .social-share img{width:6rem;height:6rem;margin:.5rem auto;display:block}
+        .social-share a{font-size:1.25rem;margin:0 .5rem;color:var(--primary-color);transition:var(--transition)}
+        .social-share a:hover,.social-share a:focus{color:var(--secondary-color);transform:scale(1.1)}
+        .contact-info p{text-align:center;margin:.5rem 0;font-size:.9rem}
+        .result-image-holder{width:7.5rem;height:7.5rem;margin:.5rem auto}
+        .result-image-holder img{width:100%;height:100%;object-fit:cover;border-radius:var(--border-radius)}
+        .generating{font-style:italic;color:var(--secondary-color);margin:.5rem 0}
+        .loading-spinner{border:4px solid var(--bg-light);border-top:4px solid var(--primary-color);border-radius:50%;width:2rem;height:2rem;animation:spin 1s linear infinite;margin:1rem auto}
+        @keyframes spin{0%{transform:rotate(0deg)}100%{transform:rotate(360deg)}}
+        #errorMessage{display:none;color:red;text-align:center;margin:.5rem 0;font-size:.9rem;padding:.5rem;background:#ffe6e6;border-radius:.25rem}
+        .quiz-error{font-size:.85rem;color:red;margin:1rem 0}
+        @media (max-width:900px){
+            .what-to-expect{flex-direction:column;justify-content:center;align-items:center}
+            .booth-image-holder{width:10rem;height:10rem;margin:.25rem auto;order:2}
+            .expect-text{text-align:center;padding:.25rem;order:1}
+            .about-us img{width:15rem;height:15rem}
+        }
+        @media (max-width:600px){
+            :root{--padding-sm:.25rem}
+            .menu-toggle{display:block}
+            .nav-links{display:none;flex-direction:column;position:absolute;top:var(--nav-height);left:0;width:100%;background:var(--bg-light);padding:.5rem;box-shadow:var(--shadow)}
+            .nav-links.active{display:block}
+            .nav-links a{font-size:.9rem;padding:.5rem;text-align:center}
+            .logo-holder{width:2rem;height:2rem}
+            main{margin-top:calc(var(--nav-height) + .5rem)}
+            .booth-image-holder{width:8rem;height:8rem}
+            .about-us img{width:10rem;height:10rem}
+            .new-offices iframe{height:10rem}
+            h1{font-size:1.25rem}h2{font-size:1rem}h3{font-size:.9rem}
+            .content{max-height:80vh}
+            .quiz{max-height:100%;padding:.5rem;max-width:95%}
+            .option-buttons{grid-template-columns:1fr;gap:.5rem}
+            .option-buttons button,.ingredient{font-size:.8rem;padding:.4rem;min-height:2rem}
+            .quiz-buttons button,.rsvp-button,#retakeFindQuiz,#retakeMakeQuiz,#retakeKnowledgeQuiz{font-size:.8rem;padding:.4rem .8rem}
+            .gallery-content{grid-template-columns:repeat(2,1fr);grid-template-rows:repeat(4,auto)}
+            .gallery img{height:4rem}
+            .gallery .scent-label{font-size:.6rem}
+            .social-share img{width:5rem;height:5rem}
+            .result-image-holder{width:6rem;height:6rem}
+            .rsvp-form input{max-width:10rem;font-size:.75rem}
+            .quiz-statement{font-size:.8rem}
+            #signatureQuestions .signature-question p{font-size:.85rem}
+            #signatureQuestions .carousel-progress{font-size:.75rem}
+            .modal-content{max-width:90%}
+            .modal-content img{max-width:8rem}
+            .ingredient-list{grid-template-columns:repeat(3,1fr)}
+        }
+    </style>
+</head>
+<body>
+    <noscript>
+        <p style="text-align:center;color:red">JavaScript is required for quizzes and RSVP form. Enable JavaScript or email <a href="mailto:info@haorenaf.com?subject=RSVP Haoren Expo 2025">info@haorenaf.com</a> to RSVP.</p>
+    </noscript>
+    <nav>
+        <div class="nav-content">
+            <div class="logo-holder">
+                <picture>
+                    <source srcset="https://haorenaf.com/assets/logo.webp" type="image/webp">
+                    <img src="https://haorenaf.com/assets/logo.png" alt="Haoren Fragrances Logo" loading="eager" width="48" height="48" onerror="this.src='https://via.placeholder.com/48?text=Logo'">
+                </picture>
+            </div>
+            <button class="menu-toggle" aria-label="Toggle Menu" aria-expanded="false">
+                <i class="fas fa-bars"></i>
+            </button>
+            <div class="nav-links">
+                <a href="#header" aria-label="Home">Home</a>
+                <a href="#about-us" aria-label="About">About</a>
+                <a href="#find-your-scent" aria-label="Quiz">Quiz</a>
+                <a href="#rsvp" aria-label="RSVP">RSVP</a>
+                <a href="#contact-info" aria-label="Contact">Contact</a>
+            </div>
+        </div>
+    </nav>
+    <main role="main" aria-live="polite" tabindex="0" id="mainContainer">
+        <div id="errorMessage"></div>
+        <section class="header-section" id="header">
+            <div class="image-holder">
+                <picture>
+                    <source srcset="https://haorenaf.com/assets/expo-poster.webp" type="image/webp">
+                    <img src="https://haorenaf.com/assets/expo-poster.jpg" alt="Haoren Fragrances Expo 2025 Poster" loading="eager" width="600" height="400" onerror="this.src='https://via.placeholder.com/600x400?text=Expo+Poster'">
+                </picture>
+            </div>
+            <div class="content">
+                <h1>You Are Cordially Invited to<br>Haoren Fragrances Expo 2025</h1>
+            </div>
+        </section>
+        <section class="intro-section" id="intro">
+            <div class="content">
+                <h2>Join the Scent Revolution!</h2>
+                <p>Discover Haoren Fragrances Expo, blending Kenya’s natural essence with AI-driven perfumery. Experience scents inspired by Mombasa’s coast and Maasai Mara’s plains.</p>
+                <p><strong>Event Highlights:</strong> Interactive scent stations, expert meet-and-greets, and custom fragrance creation at KICC, Nairobi.</p>
+                <div class="event-details">
+                    <p><i class="fas fa-calendar-alt" aria-hidden="true"></i> July 8, 2025</p>
+                    <p><i class="fas fa-clock" aria-hidden="true"></i> 9:00 AM - 5:00 PM</p>
+                    <p><i class="fas fa-map-marker-alt" aria-hidden="true"></i> <strong class="venue">Kenyatta International Convention Centre, Nairobi, Kenya</strong></p>
+                </div>
+            </div>
+        </section>
+        <section id="what-to-expect">
+            <div class="content">
+                <div class="what-to-expect">
+                    <div class="expect-text">
+                        <h3>Explore</h3>
+                        <ul>
+                            <li><strong>Scent Exploration</strong><p>Discover unique fragrances hands-on.</p></li>
+                            <li><strong>Perfumer Talks</strong><p>Hear from master scent creators.</p></li>
+                            <li><strong>Live Crafting</strong><p>Watch perfumes being blended.</p></li>
+                            <li><strong>New Fragrances</strong><p>Preview Haoren’s latest scents.</p></li>
+                            <li><strong>Custom Scent</strong><p>Create your own fragrance.</p></li>
+                            <li><strong>Free Sample</strong><p>Take home a Haoren scent gift.</p></li>
+                            <li><strong>Cultural Scent Journey</strong><p>Explore Kenya-inspired fragrances.</p></li>
+                        </ul>
+                    </div>
+                    <div class="booth-image-holder">
+                        <picture>
+                            <source srcset="https://haorenaf.com/assets/booth.webp" type="image/webp">
+                            <img src="https://haorenaf.com/assets/booth.jpg" alt="Haoren Fragrances Expo Booth" loading="lazy" width="300" height="300" onerror="this.src='https://via.placeholder.com/300?text=Booth+Image'">
+                        </picture>
+                    </div>
+                </div>
+            </div>
+        </section>
+        <section id="about-us">
+            <div class="content">
+                <div class="about-us">
+                    <h3>Who We Are</h3>
+                    <picture>
+                        <source srcset="https://haorenaf.com/assets/team.webp" type="image/webp">
+                        <img src="https://haorenaf.com/assets/team.jpg" alt="Haoren Fragrances Team" loading="lazy" width="350" height="350" onerror="this.src='https://via.placeholder.com/350?text=Team+Photo'">
+                    </picture>
+                    <p>Haoren Fragrances, Kenya’s AI-powered perfumery, crafts scents inspired by Africa’s landscapes and heritage, from Mombasa’s shores to Nyika’s wildflowers.</p>
+                </div>
+            </div>
+        </section>
+        <section id="new-offices">
+            <div class="content">
+                <div class="new-offices">
+                    <h3>Live Tour of Our New Offices</h3>
+                    <p>Explore our innovative Haoren Fragrances offices in Nairobi.</p>
+                    <iframe src="https://www.kujiale.cn/design/3FO3G8IJGAYS/show?fromqrcode=true" title="Live Tour of Haoren Fragrances Offices" width="600" height="300" loading="lazy" allow="autoplay; encrypted-media" allowfullscreen></iframe>
+                    <p class="fallback-message">Video unavailable? Visit <a href="https://haorenaf.com/offices" target="_blank">haorenaf.com/offices</a> for a virtual tour.</p>
+                </div>
+            </div>
+        </section>
+        <section id="gallery">
+            <div class="content">
+                <div class="gallery">
+                    <h3>Sneak Peek at Our Scent Gallery</h3>
+                    <div class="gallery-content">
+                        <div>
+                            <picture>
+                                <source srcset="https://haorenaf.com/assets/pwani-limau.webp" type="image/webp">
+                                <img src="https://haorenaf.com/assets/pwani-limau.jpg" alt="Pwani Limau Scent" data-scent-name="Pwani Limau" loading="lazy" width="120" height="120" onerror="this.src='https://via.placeholder.com/120?text=Pwani+Limau'">
+                            </picture>
+                            <span class="scent-label">Pwani Limau</span>
+                        </div>
+                        <div>
+                            <picture>
+                                <source srcset="https://haorenaf.com/assets/mlima-baridi.webp" type="image/webp">
+                                <img src="https://haorenaf.com/assets/mlima-baridi.jpg" alt="Mlima Baridi Scent" data-scent-name="Mlima Baridi" loading="lazy" width="120" height="120" onerror="this.src='https://via.placeholder.com/120?text=Mlima+Baridi'">
+                            </picture>
+                            <span class="scent-label">Mlima Baridi</span>
+                        </div>
+                        <div>
+                            <picture>
+                                <source srcset="https://haorenaf.com/assets/waridi-ya-nyika.webp" type="image/webp">
+                                <img src="https://haorenaf.com/assets/waridi-ya-nyika.jpg" alt="Waridi ya Nyika Scent" data-scent-name="Waridi ya Nyika" loading="lazy" width="120" height="120" onerror="this.src='https://via.placeholder.com/120?text=Waridi+ya+Nyika'">
+                            </picture>
+                            <span class="scent-label">Waridi ya Nyika</span>
+                        </div>
+                        <div>
+                            <picture>
+                                <source srcset="https://haorenaf.com/assets/wimbo-wa-msafiri.webp" type="image/webp">
+                                <img src="https://haorenaf.com/assets/wimbo-wa-msafiri.jpg" alt="Wimbo wa Msafiri Scent" data-scent-name="Wimbo wa Msafiri" loading="lazy" width="120" height="120" onerror="this.src='https://via.placeholder.com/120?text=Wimbo+wa+Msafiri'">
+                            </picture>
+                            <span class="scent-label">Wimbo wa Msafiri</span>
+                        </div>
+                        <div>
+                            <picture>
+                                <source srcset="https://haorenaf.com/assets/zawadi-ya-maua.webp" type="image/webp">
+                                <img src="https://haorenaf.com/assets/zawadi-ya-maua.jpg" alt="Zawadi ya Maua Scent" data-scent-name="Zawadi ya Maua" loading="lazy" width="120" height="120" onerror="this.src='https://via.placeholder.com/120?text=Zawadi+ya+Maua'">
+                            </picture>
+                            <span class="scent-label">Zawadi ya Maua</span>
+                        </div>
+                        <div>
+                            <picture>
+                                <source srcset="https://haorenaf.com/assets/bahari-ya-uhuru.webp" type="image/webp">
+                                <img src="https://haorenaf.com/assets/bahari-ya-uhuru.jpg" alt="Bahari ya Uhuru Scent" data-scent-name="Bahari ya Uhuru" loading="lazy" width="120" height="120" onerror="this.src='https://via.placeholder.com/120?text=Bahari+ya+Uhuru'">
+                            </picture>
+                            <span class="scent-label">Bahari ya Uhuru</span>
+                        </div>
+                        <div>
+                            <picture>
+                                <source srcset="https://haorenaf.com/assets/sukari-ya-maziwa.webp" type="image/webp">
+                                <img src="https://haorenaf.com/assets/sukari-ya-maziwa.jpg" alt="Sukari ya Maziwa Scent" data-scent-name="Sukari ya Maziwa" loading="lazy" width="120" height="120" onerror="this.src='https://via.placeholder.com/120?text=Sukari+ya+Maziwa'">
+                            </picture>
+                            <span class="scent-label">Sukari ya Maziwa</span>
+                        </div>
+                        <div>
+                            <picture>
+                                <source srcset="https://haorenaf.com/assets/al-diamond.webp" type="image/webp">
+                                <img src="https://haorenaf.com/assets/al-diamond.jpg" alt="Al-Diamond Scent" data-scent-name="Al-Diamond" loading="lazy" width="120" height="120" onerror="this.src='https://via.placeholder.com/120?text=Al-Diamond'">
+                            </picture>
+                            <span class="scent-label">Al-Diamond</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+        <section id="perfume-knowledge">
+            <div class="content">
+                <div class="quiz">
+                    <h3>Test Your Perfume Knowledge</h3>
+                    <p class="quiz-statement">How well do you know the stories behind perfumes? Take this quiz to find out!</p>
+                    <div id="knowledgeQuestions" role="region" aria-live="polite"></div>
+                    <div class="quiz-error" id="knowledgeQuizError" style="display:none;"></div>
+                    <div class="quiz-buttons">
+                        <button onclick="previousKnowledgeQuestion()" aria-label="Previous Question">Previous</button>
+                        <button id="nextKnowledgeQuestion" onclick="nextKnowledgeQuestion()" disabled aria-label="Next Question">Next</button>
+                    </div>
+                    <div id="knowledgeResult" style="display:none;" aria-live="polite"></div>
+                    <button id="retakeKnowledgeQuiz" style="display:none;" aria-label="Retake Perfume Knowledge Quiz">Retake Quiz</button>
+                </div>
+            </div>
+        </section>
+        <section id="find-your-scent">
+            <div class="content">
+                <div class="quiz">
+                    <h3>Find Your Signature Scent</h3>
+                    <p class="quiz-statement">Discover your perfect scent with our interactive quiz!</p>
+                    <div id="signatureQuestions" role="region" aria-live="polite"></div>
+                    <div class="quiz-error" id="signatureQuizError" style="display:none;"></div>
+                    <div class="quiz-buttons">
+                        <button onclick="previousQuestion()" aria-label="Previous Question">Previous</button>
+                        <button id="nextQuestion" onclick="nextQuestion()" disabled aria-label="Next Question">Next</button>
+                    </div>
+                    <div id="findResult" style="display:none;" aria-live="polite"></div>
+                    <button id="retakeFindQuiz" style="display:none;" aria-label="Retake Signature Scent Quiz">Retake Quiz</button>
+                </div>
+            </div>
+        </section>
+        <section id="craft-your-scent">
+            <div class="content">
+                <div class="quiz">
+                    <h3>Craft Your Custom Scent</h3>
+                    <p>Choose up to 5 ingredients to create a unique fragrance!</p>
+                    <div class="ingredient-list" id="ingredientList" role="group" aria-label="Select Ingredients"></div>
+                    <div class="quiz-error" id="craftQuizError" style="display:none;"></div>
+                    <p id="selectedIngredients" aria-live="polite"></p>
+                    <button onclick="makeScent()" aria-label="Create Your Scent Blend">Create Your Blend</button>
+                    <div id="makeResult" style="display:none;" aria-live="polite"></div>
+                    <button id="retakeMakeQuiz" style="display:none;" aria-label="Retake Custom Scent Quiz">Retake Quiz</button>
+                </div>
+            </div>
+        </section>
+        <section id="rsvp">
+            <div class="content">
+                <div class="rsvp-form">
+                    <h3>Secure Your Spot</h3>
+                    <form id="rsvpForm" aria-label="RSVP Form">
+                        <input type="text" id="name" placeholder="Full Name" required aria-label="Full Name">
+                        <input type="email" id="email" placeholder="Email Address" required pattern="[^\s@]+@[^\s@]+\.[^\s@]+$" aria-label="Email Address">
+                        <input type="tel" id="phone" placeholder="Phone Number (Optional)" aria-label="Phone Number">
+                        <input type="text" id="company" placeholder="Company (Optional)" aria-label="Company Name">
+                        <button class="rsvp-button" type="submit" aria-label="Submit RSVP">RSVP Now</button>
+                    </form>
+                </div>
+            </div>
+        </section>
+        <section id="social-share">
+            <div class="content">
+                <div class="social-share">
+                    <h3>Spread the Scent</h3>
+                    <p>Invite friends to join the scent revolution!</p>
+                    <picture>
+                        <source srcset="https://haorenaf.com/assets/qr-code.webp" type="image/webp">
+                        <img src="https://api.qrserver.com/v1/create-qr-code/?size=120x120&data=https://haorenaf.com/haoren-expo" alt="QR Code to Haoren Expo" loading="lazy" width="120" height="120" onerror="this.src='https://via.placeholder.com/120?text=QR+Code'">
+                    </picture>
+                    <div>
+                        <a href="https://api.whatsapp.com/send?text=Join me at Haoren Fragrances Expo! July 8, 2025 at KICC, Nairobi. RSVP: https://haorenaf.com/haoren-expo" target="_blank" rel="noopener" aria-label="Share on WhatsApp"><i class="fab fa-whatsapp"></i></a>
+                        <a href="https://x.com/intent/tweet?text=Excited for Haoren Fragrances Expo on July 8, 2025 at KICC, Nairobi! Join me! https://haorenaf.com/haoren-expo" target="_blank" rel="noopener" aria-label="Share on X"><i class="fab fa-x-twitter"></i></a>
+                        <a href="https://www.facebook.com/sharer/sharer.php?u=https://haorenaf.com/haoren-expo" target="_blank" rel="noopener" aria-label="Share on Facebook"><i class="fab fa-facebook"></i></a>
+                        <a href="https://www.instagram.com/?url=https://haorenaf.com/haoren-expo" target="_blank" rel="noopener" aria-label="Share on Instagram"><i class="fab fa-instagram"></i></a>
+                    </div>
+                </div>
+            </div>
+        </section>
+        <section id="contact-info">
+            <div class="content">
+                <div class="contact-info">
+                    <h3>Stay Connected</h3>
+                    <p>Follow us: <a href="https://www.instagram.com/haoren_af/" target="_blank" rel="noopener" aria-label="Instagram">@haoren_af</a><br>
+                    Email us: <a href="mailto:info@haorenaf.com" aria-label="Email">info@haorenaf.com</a><br>
+                    Call us: <a href="tel:+254114012345" aria-label="Phone">0114012345</a><br>
+                    Visit: <a href="https://maps.google.com/?q=Highway+Heights,+Kilimani,+Nairobi" target="_blank" rel="noopener" aria-label="Address">Highway Heights, Kilimani, Nairobi</a><br>
+                    Explore: <a href="https://haorenaf.com" target="_blank" rel="noopener" aria-label="Website">haorenaf.com</a></p>
+                </div>
+            </div>
+        </section>
+        <div id="scentModal" class="modal" role="dialog" aria-labelledby="modalTitle" aria-describedby="modalStory" aria-modal="true">
+            <div class="modal-content">
+                <button class="close" aria-label="Close Modal">×</button>
+                <h3 id="modalTitle"></h3>
+                <img id="modalImage" src="" alt="" loading="lazy">
+                <p id="modalStory"></p>
+                <p id="modalInvite">Join us at Haoren Fragrances Expo 2025 on July 8 at KICC, Nairobi to experience this scent live!</p>
+            </div>
+        </div>
+    </main>
+    <script defer src="https://cdn.jsdelivr.net/npm/canvas-confetti@1.9.3/dist/confetti.browser.min.js"></script>
+    <script>
+        const scentStories = {
+            "Pwani Limau": "Inspired by Mombasa’s sun-kissed shores, Pwani Limau blends zesty lime with ocean breezes for a refreshing escape.",
+            "Mlima Baridi": "Evoking Aberdare’s misty forests, Mlima Baridi captures crisp eucalyptus and green leaves in a serene embrace.",
+            "Waridi ya Nyika": "Born from Maasai Mara’s wild plains, Waridi ya Nyika blooms with rich rose notes, grounded in earthy warmth.",
+            "Wimbo wa Msafiri": "A journey through Kenya’s markets, Wimbo wa Msafiri sings with vibrant bergamot and spicy undertones.",
+            "Zawadi ya Maua": "A floral gift from Nyika’s fields, Zawadi ya Maua weaves raspberry and soft petals for a sweet allure.",
+            "Bahari ya Uhuru": "Reflecting coastal freedom, Bahari ya Uhuru merges fresh aquatic notes with a hint of jasmine.",
+            "Sukari ya Maziwa": "A cozy gourmand delight, Sukari ya Maziwa wraps you in creamy vanilla and warm milk accords.",
+            "Al-Diamond": "Bold and luxurious, Al-Diamond sparkles with almond floral notes, radiating confidence and elegance."
+        };
+        const perfumeMap = {
+            "Green Leaves 🍃": { name: "Mlima Baridi", image: "https://haorenaf.com/assets/mlima-baridi.jpg", webp: "https://haorenaf.com/assets/mlima-baridi.webp", fallback: "https://via.placeholder.com/140?text=Mlima+Baridi" },
+            "Raspberry 🍇": { name: "Zawadi ya Maua", image: "https://haorenaf.com/assets/zawadi-ya-maua.jpg", webp: "https://haorenaf.com/assets/zawadi-ya-maua.webp", fallback: "https://via.placeholder.com/140?text=Zawadi+ya+Maua" },
+            "Bergamot 🍋": { name: "Wimbo wa Msafiri", image: "https://haorenaf.com/assets/wimbo-wa-msafiri.jpg", webp: "https://haorenaf.com/assets/wimbo-wa-msafiri.webp", fallback: "https://via.placeholder.com/140?text=Wimbo+wa+Msafiri" },
+            "Rose 🌹": { name: "Waridi ya Nyika", image: "https://haorenaf.com/assets/waridi-ya-nyika.jpg", webp: "https://haorenaf.com/assets/waridi-ya-nyika.webp", fallback: "https://via.placeholder.com/140?text=Waridi+ya+Nyika" },
+            "Fresh 💧": { name: "Pwani Limau", image: "https://haorenaf.com/assets/pwani-limau.jpg", webp: "https://haorenaf.com/assets/pwani-limau.webp", fallback: "https://via.placeholder.com/140?text=Pwani+Limau" },
+            "Yes 🩺": { name: "Bahari ya Uhuru", image: "https://haorenaf.com/assets/bahari-ya-uhuru.jpg", webp: "https://haorenaf.com/assets/bahari-ya-uhuru.webp", fallback: "https://via.placeholder.com/140?text=Bahari+ya+Uhuru" },
+            "Vanilla 🍦": { name: "Sukari ya Maziwa", image: "https://haorenaf.com/assets/sukari-ya-maziwa.jpg", webp: "https://haorenaf.com/assets/sukari-ya-maziwa.webp", fallback: "https://via.placeholder.com/140?text=Sukari+ya+Maziwa" },
+            "Almond Floral 🔥": { name: "Al-Diamond", image: "https://haorenaf.com/assets/al-diamond.jpg", webp: "https://haorenaf.com/assets/al-diamond.webp", fallback: "https://via.placeholder.com/140?text=Al-Diamond" }
+        };
+        const quizQuestions = [
+            { question: "Which Kenyan landscape inspires you most?", options: [{ text: "Mombasa’s beaches", emoji: "🏖️", scent: "Fresh 💧" }, { text: "Aberdare’s forests", emoji: "🌲", scent: "Green Leaves 🍃" }, { text: "Maasai Mara plains", emoji: "🦒", scent: "Rose 🌹" }, { text: "Tsavo’s wildflower fields", emoji: "🌼", scent: "Raspberry 🍇" }] },
+            { question: "What’s your ideal Kenyan adventure?", options: [{ text: "Coastal boat ride", emoji: "⛵", scent: "Fresh 💧" }, { text: "Forest hike", emoji: "🥾", scent: "Green Leaves 🍃" }, { text: "Safari drive", emoji: "🚙", scent: "Rose 🌹" }, { text: "Market stroll", emoji: "🛍️", scent: "Bergamot 🍋" }] },
+            { question: "Pick a Kenyan flavor vibe:", options: [{ text: "Zesty lime", emoji: "🍈", scent: "Fresh 💧" }, { text: "Spicy pepper", emoji: "🌶️", scent: "Rose 🌹" }, { text: "Sweet vanilla", emoji: "🍦", scent: "Vanilla 🍦" }, { text: "Nutty almond", emoji: "🥜", scent: "Almond Floral 🔥" }] },
+            { question: "What’s your personality vibe?", options: [{ text: "Free-spirited", emoji: "🦋", scent: "Yes 🩺" }, { text: "Grounded", emoji: "🌍", scent: "Green Leaves 🍃" }, { text: "Romantic", emoji: "💖", scent: "Rose 🌹" }, { text: "Bold", emoji: "🔥", scent: "Almond Floral 🔥" }] },
+            { question: "Choose a Kenyan evening vibe:", options: [{ text: "Beach sunset", emoji: "🌅", scent: "Fresh 💧" }, { text: "Starry savannah", emoji: "🌠", scent: "Rose 🌹" }, { text: "Cozy village", emoji: "🏘️", scent: "Vanilla 🍦" }, { text: "City nightlife", emoji: "🌃", scent: "Almond Floral 🔥" }] }
+        ];
+        const knowledgeQuestionsPool = [
+            { question: "Which ingredient is central to Haoren’s Pwani Limau scent?", options: [{ text: "Lime", correct: true }, { text: "Rose", correct: false }, { text: "Sandalwood", correct: false }, { text: "Vanilla", correct: false }] },
+            { question: "What inspired the creation of perfumes in ancient Egypt?", options: [{ text: "Religious rituals", correct: true }, { text: "Fashion trends", correct: false }, { text: "Trade routes", correct: false }, { text: "Royal weddings", correct: false }] },
+            { question: "Which region is known for oud in perfumery?", options: [{ text: "Middle East", correct: true }, { text: "South America", correct: false }, { text: "Europe", correct: false }, { text: "Australia", correct: false }] },
+            { question: "What does 'Eau de Parfum' indicate?", options: [{ text: "Higher fragrance concentration", correct: true }, { text: "Lower fragrance concentration", correct: false }, { text: "Alcohol-free formula", correct: false }, { text: "Unisex scent", correct: false }] },
+            { question: "Which flower is key to Waridi ya Nyika?", options: [{ text: "Rose", correct: true }, { text: "Jasmine", correct: false }, { text: "Lavender", correct: false }, { text: "Lily", correct: false }] },
+            { question: "Who is credited with modern perfumery in the 19th century?", options: [{ text: "François Coty", correct: true }, { text: "Coco Chanel", correct: false }, { text: "Yves Saint Laurent", correct: false }, { text: "Jean Patou", correct: false }] },
+            { question: "What note type lasts longest in a perfume?", options: [{ text: "Base notes", correct: true }, { text: "Top notes", correct: false }, { text: "Heart notes", correct: false }, { text: "Middle notes", correct: false }] },
+            { question: "Which scent family does Sukari ya Maziwa belong to?", options: [{ text: "Gourmand", correct: true }, { text: "Citrus", correct: false }, { text: "Woody", correct: false }, { text: "Floral", correct: false }] },
+            { question: "What was perfume originally used for in ancient times?", options: [{ text: "Masking body odors", correct: true }, { text: "Decorating clothing", correct: false }, { text: "Flavoring food", correct: false }, { text: "Healing wounds", correct: false }] },
+            { question: "Which Haoren scent is inspired by Mombasa’s coast?", options: [{ text: "Pwani Limau", correct: true }, { text: "Mlima Baridi", correct: false }, { text: "Al-Diamond", correct: false }, { text: "Zawadi ya Maua", correct: false }] }
+        ];
+        const ingredients = ["Lime", "Eucalyptus", "Rose", "Pink Pepper", "Raspberry", "Sandalwood", "Jasmine", "Vanilla", "Bergamot", "Oud"];
+        let currentQuestion = 0, answers = [], quizCompleted = false, currentKnowledgeQuestion = 0, knowledgeAnswers = [], knowledgeQuizCompleted = false, selectedKnowledgeQuestions = [];
+
+        function showError(t, targetId = "errorMessage") {
+            const e = document.getElementById(targetId);
+            if (e) {
+                e.textContent = t;
+                e.style.display = "block";
+                setTimeout(() => { if (e) e.style.display = "none"; }, 3000);
+            }
+        }
+
+        function shuffleArray(t) {
+            for (let e = t.length - 1; e > 0; e--) {
+                const n = Math.floor(Math.random() * (e + 1));
+                [t[e], t[n]] = [t[n], t[e]];
+            }
+            return t;
+        }
+
+        function initQuizzes() {
+            try {
+                // Initialize Find Your Signature Scent Quiz
+                const signatureContainer = document.getElementById("signatureQuestions");
+                const signatureError = document.getElementById("signatureQuizError");
+                if (!signatureContainer) {
+                    if (signatureError) signatureError.textContent = "Error loading quiz questions. Please refresh.";
+                    signatureError.style.display = "block";
+                    throw new Error("Signature quiz container not found");
+                }
+                signatureContainer.innerHTML = "";
+                quizQuestions.forEach((question, index) => {
+                    const questionDiv = document.createElement("div");
+                    questionDiv.className = `signature-question ${index === 0 ? "active" : ""}`;
+                    questionDiv.setAttribute("aria-current", index === 0 ? "true" : "false");
+                    questionDiv.innerHTML = `
+                        <p>${index + 1}. ${question.question}</p>
+                        <div class="option-buttons">
+                            ${question.options.map(option => `
+                                <button class="option-button" data-value="${option.text}" data-scent="${option.scent}" aria-label="${option.text}">
+                                    ${option.emoji} ${option.text}
+                                </button>
+                            `).join("")}
+                        </div>
+                        <p class="carousel-progress">Question ${index + 1}/${quizQuestions.length}</p>
+                    `;
+                    signatureContainer.appendChild(questionDiv);
+                    const buttons = questionDiv.querySelectorAll(".option-button");
+                    buttons.forEach(button => {
+                        button.addEventListener("click", () => {
+                            buttons.forEach(btn => btn.classList.remove("selected"));
+                            button.classList.add("selected");
+                            answers[index] = button.dataset.scent;
+                            console.log(`Answer selected for Q${index + 1}: ${answers[index]}`);
+                            updateQuestionDisplay();
+                        });
+                    });
+                });
+                updateQuestionDisplay();
+
+                // Initialize Perfume Knowledge Quiz
+                const knowledgeContainer = document.getElementById("knowledgeQuestions");
+                const knowledgeError = document.getElementById("knowledgeQuizError");
+                if (!knowledgeContainer) {
+                    if (knowledgeError) knowledgeError.textContent = "Error loading knowledge quiz. Please refresh.";
+                    knowledgeError.style.display = "block";
+                    throw new Error("Knowledge quiz container not found");
+                }
+                selectedKnowledgeQuestions = shuffleArray([...knowledgeQuestionsPool]).slice(0, 5);
+                knowledgeContainer.innerHTML = "";
+                selectedKnowledgeQuestions.forEach((question, index) => {
+                    const questionDiv = document.createElement("div");
+                    questionDiv.className = `knowledge-question ${index === 0 ? "active" : ""}`;
+                    questionDiv.innerHTML = `
+                        <p>${index + 1}. ${question.question}</p>
+                        <div class="option-buttons">
+                            ${question.options.map(option => `
+                                <button class="option-button" data-value="${option.text}" data-correct="${option.correct}" aria-label="${option.text}">
+                                    ${option.text}
+                                </button>
+                            `).join("")}
+                        </div>
+                    `;
+                    knowledgeContainer.appendChild(questionDiv);
+                    const buttons = questionDiv.querySelectorAll(".option-button");
+                    buttons.forEach(button => {
+                        button.addEventListener("click", () => {
+                            buttons.forEach(btn => btn.classList.remove("selected"));
+                            button.classList.add("selected");
+                            knowledgeAnswers[index] = button.dataset.correct === "true";
+                            document.getElementById("nextKnowledgeQuestion").disabled = false;
+                        });
+                    });
+                });
+
+                // Initialize Craft Your Custom Scent Quiz
+                const ingredientContainer = document.getElementById("ingredientList");
+                const craftError = document.getElementById("craftQuizError");
+                if (!ingredientContainer) {
+                    if (craftError) craftError.textContent = "Error loading ingredients. Please refresh.";
+                    craftError.style.display = "block";
+                    throw new Error("Ingredient list container not found");
+                }
+                ingredientContainer.innerHTML = "";
+                ingredients.forEach(ingredient => {
+                    const span = document.createElement("span");
+                    span.className = "ingredient";
+                    span.textContent = ingredient;
+                    span.setAttribute("role", "button");
+                    span.setAttribute("tabindex", "0");
+                    span.addEventListener("click", () => toggleIngredient(span));
+                    span.addEventListener("keydown", e => {
+                        if (e.key === "Enter" || e.key === " ") toggleIngredient(span);
+                    });
+                    ingredientContainer.appendChild(span);
+                });
+                if (ingredientContainer.children.length === 0) {
+                    if (craftError) craftError.textContent = "No ingredients available. Please refresh.";
+                    craftError.style.display = "block";
+                }
+            } catch (error) {
+                console.error("Quiz initialization failed:", error);
+                showError("Error loading quizzes. Please refresh the page.");
+            }
+        }
+
+        function updateQuestionDisplay() {
+            try {
+                document.querySelectorAll("#signatureQuestions .signature-question").forEach((question, index) => {
+                    question.classList.toggle("active", index === currentQuestion);
+                    question.setAttribute("aria-current", index === currentQuestion ? "true" : "false");
+                });
+                const nextButton = document.getElementById("nextQuestion");
+                if (nextButton) {
+                    nextButton.disabled = !answers[currentQuestion] || quizCompleted;
+                    console.log(`Current Question: ${currentQuestion + 1}, Answers: ${answers}, Next Button Disabled: ${nextButton.disabled}`);
+                }
+            } catch (error) {
+                console.error("Question display update failed:", error);
+                showError("Error updating quiz. Please try again.", "signatureQuizError");
+            }
+        }
+
+        function nextQuestion() {
+            try {
+                if (!quizCompleted && answers[currentQuestion]) {
+                    if (currentQuestion < quizQuestions.length - 1) {
+                        document.querySelectorAll("#signatureQuestions .signature-question")[currentQuestion].classList.remove("active");
+                        currentQuestion++;
+                        document.querySelectorAll("#signatureQuestions .signature-question")[currentQuestion].classList.add("active");
+                        updateQuestionDisplay();
+                    } else {
+                        showFindResult();
+                        quizCompleted = true;
+                        document.getElementById("nextQuestion").disabled = true;
+                    }
+                    console.log(`Moved to question ${currentQuestion + 1}`);
+                }
+            } catch (error) {
+                console.error("Next question failed:", error);
+                showError("Error advancing quiz. Please try again.", "signatureQuizError");
+            }
+        }
+
+        function previousQuestion() {
+            try {
+                if (currentQuestion > 0) {
+                    document.querySelectorAll("#signatureQuestions .signature-question")[currentQuestion].classList.remove("active");
+                    currentQuestion--;
+                    document.querySelectorAll("#signatureQuestions .signature-question")[currentQuestion].classList.add("active");
+                    updateQuestionDisplay();
+                    console.log(`Moved to question ${currentQuestion + 1}`);
+                }
+            } catch (error) {
+                console.error("Previous question failed:", error);
+                showError("Error navigating back. Please try again.", "signatureQuizError");
+            }
+        }
+
+        function showFindResult() {
+            const resultContainer = document.getElementById("findResult");
+            const retakeButton = document.getElementById("retakeFindQuiz");
+            if (resultContainer && retakeButton) {
+                if (answers.length === 0) {
+                    resultContainer.textContent = "Please answer at least one question to find your scent!";
+                    resultContainer.style.display = "block";
+                    return;
+                }
+                resultContainer.innerHTML = '<div class="loading-spinner"></div><p class="generating">Generating your scent...</p>';
+                resultContainer.style.display = "block";
+                setTimeout(() => {
+                    const scentCounts = {};
+                    answers.forEach(scent => { scentCounts[scent] = (scentCounts[scent] || 0) + 1; });
+                    const topScent = Object.keys(scentCounts).reduce((a, b) => scentCounts[a] > scentCounts[b] ? a : b);
+                    const perfume = perfumeMap[topScent] || { name: "Custom Blend", image: "https://via.placeholder.com/140?text=Custom+Blend", webp: "https://via.placeholder.com/140?text=Custom+Blend", fallback: "https://via.placeholder.com/140?text=Custom+Blend" };
+                    resultContainer.innerHTML = `
+                        <div class="result-image-holder">
+                            <picture>
+                                <source srcset="${perfume.webp}" type="image/webp">
+                                <img src="${perfume.image}" alt="Your scent: ${perfume.name}" loading="lazy" width="140" height="140" onerror="this.src='${perfume.fallback}'">
+                            </picture>
+                        </div>
+                        <p>Your Scent: <strong>${perfume.name}</strong></p>
+                    `;
+                    retakeButton.style.display = "inline-block";
+                    confetti({ particleCount: 100, spread: 70, origin: { y: 0.6 } });
+                }, 1000);
+            }
+        }
+
+        function retakeFindQuiz() {
+            currentQuestion = 0;
+            answers = [];
+            quizCompleted = false;
+            const resultContainer = document.getElementById("findResult");
+            const retakeButton = document.getElementById("retakeFindQuiz");
+            if (resultContainer && retakeButton) {
+                resultContainer.style.display = "none";
+                retakeButton.style.display = "none";
+            }
+            document.querySelectorAll("#signatureQuestions .option-button").forEach(btn => btn.classList.remove("selected"));
+            document.getElementById("nextQuestion").disabled = true;
+            document.querySelectorAll("#signatureQuestions .signature-question").forEach(q => q.classList.remove("active"));
+            document.querySelectorAll("#signatureQuestions .signature-question")[0].classList.add("active");
+            updateQuestionDisplay();
+        }
+
+        function nextKnowledgeQuestion() {
+            if (!knowledgeQuizCompleted && knowledgeAnswers[currentKnowledgeQuestion] !== undefined) {
+                if (currentKnowledgeQuestion < selectedKnowledgeQuestions.length - 1) {
+                    document.querySelectorAll("#knowledgeQuestions .knowledge-question")[currentKnowledgeQuestion].classList.remove("active");
+                    currentKnowledgeQuestion++;
+                    document.querySelectorAll("#knowledgeQuestions .knowledge-question")[currentKnowledgeQuestion].classList.add("active");
+                    document.getElementById("nextKnowledgeQuestion").disabled = knowledgeAnswers[currentKnowledgeQuestion] === undefined;
+                } else {
+                    showKnowledgeResult();
+                    knowledgeQuizCompleted = true;
+                    document.getElementById("nextKnowledgeQuestion").disabled = true;
+                }
+            }
+        }
+
+        function previousKnowledgeQuestion() {
+            if (currentKnowledgeQuestion > 0) {
+                document.querySelectorAll("#knowledgeQuestions .knowledge-question")[currentKnowledgeQuestion].classList.remove("active");
+                currentKnowledgeQuestion--;
+                document.querySelectorAll("#knowledgeQuestions .knowledge-question")[currentKnowledgeQuestion].classList.add("active");
+                document.getElementById("nextKnowledgeQuestion").disabled = knowledgeAnswers[currentKnowledgeQuestion] === undefined;
+            }
+        }
+
+        function showKnowledgeResult() {
+            const resultContainer = document.getElementById("knowledgeResult");
+            const retakeButton = document.getElementById("retakeKnowledgeQuiz");
+            if (resultContainer && retakeButton) {
+                if (knowledgeAnswers.length === 0) {
+                    resultContainer.textContent = "Please answer at least one question to see your score!";
+                    resultContainer.style.display = "block";
+                    return;
+                }
+                resultContainer.innerHTML = '<div class="loading-spinner"></div><p class="generating">Calculating your score...</p>';
+                resultContainer.style.display = "block";
+                setTimeout(() => {
+                    const score = knowledgeAnswers.filter(answer => answer).length;
+                    const titles = [
+                        { score: 0, title: "Scent Starter" },
+                        { score: 1, title: "Novice" },
+                        { score: 2, title: "Beginner" },
+                        { score: 3, title: "Enthusiast" },
+                        { score: 4, title: "Savvy" },
+                        { score: 5, title: "Perfume Expert" }
+                    ];
+                    const title = titles.find(t => t.score === score).title;
+                    resultContainer.innerHTML = `
+                        <p>Your Score: <strong>${score}/5</strong></p>
+                        <p>You are a <strong>${title}</strong>!</p>
+                    `;
+                    retakeButton.style.display = "inline-block";
+                    confetti({ particleCount: 100, spread: 70, origin: { y: 0.6 } });
+                }, 1000);
+            }
+        }
+
+        function retakeKnowledgeQuiz() {
+            currentKnowledgeQuestion = 0;
+            knowledgeAnswers = [];
+            knowledgeQuizCompleted = false;
+            const resultContainer = document.getElementById("knowledgeResult");
+            const retakeButton = document.getElementById("retakeKnowledgeQuiz");
+            if (resultContainer && retakeButton) {
+                resultContainer.style.display = "none";
+                retakeButton.style.display = "none";
+            }
+            document.querySelectorAll("#knowledgeQuestions .knowledge-question").forEach(q => q.classList.remove("active"));
+            document.querySelectorAll("#knowledgeQuestions .knowledge-question")[0].classList.add("active");
+            document.querySelectorAll("#knowledgeQuestions .option-button").forEach(btn => btn.classList.remove("selected"));
+            document.getElementById("nextKnowledgeQuestion").disabled = true;
+            initQuizzes();
+        }
+
+        function toggleIngredient(element) {
+            const selected = document.querySelectorAll(".ingredient.selected");
+            if (element.classList.contains("selected")) {
+                element.classList.remove("selected");
+            } else if (selected.length < 5) {
+                element.classList.add("selected");
+            }
+            updateSelectedIngredients();
+        }
+
+        function updateSelectedIngredients() {
+            const selected = Array.from(document.querySelectorAll(".ingredient.selected")).map(el => el.textContent);
+            const container = document.getElementById("selectedIngredients");
+            if (container) {
+                container.textContent = selected.length ? `Selected: ${selected.join(", ")}` : "";
+            }
+        }
+
+        function makeScent() {
+            const selected = Array.from(document.querySelectorAll(".ingredient.selected")).map(el => el.textContent.toLowerCase());
+            const resultContainer = document.getElementById("makeResult");
+            const retakeButton = document.getElementById("retakeMakeQuiz");
+            if (resultContainer && retakeButton) {
+                if (selected.length === 0) {
+                    resultContainer.textContent = "Select at least one ingredient!";
+                    resultContainer.style.display = "block";
+                    return;
+                }
+                resultContainer.innerHTML = '<div class="loading-spinner"></div><p class="generating">Generating your blend...</p>';
+                resultContainer.style.display = "block";
+                setTimeout(() => {
+                    let scentKey = "Fresh 💧";
+                    if (selected.includes("lime")) scentKey = "Fresh 💧";
+                    else if (selected.includes("eucalyptus") || selected.includes("sandalwood")) scentKey = "Green Leaves 🍃";
+                    else if (selected.includes("rose") || selected.includes("pink pepper")) scentKey = "Rose 🌹";
+                    else if (selected.includes("raspberry")) scentKey = "Raspberry 🍇";
+                    else if (selected.includes("jasmine")) scentKey = "Yes 🩺";
+                    else if (selected.includes("vanilla")) scentKey = "Vanilla 🍦";
+                    else if (selected.includes("bergamot")) scentKey = "Bergamot 🍋";
+                    else if (selected.includes("oud")) scentKey = "Almond Floral 🔥";
+                    const perfume = perfumeMap[scentKey] || { name: "Custom Blend", image: "https://via.placeholder.com/140?text=Custom+Blend", webp: "https://via.placeholder.com/140?text=Custom+Blend", fallback: "https://via.placeholder.com/140?text=Custom+Blend" };
+                    resultContainer.innerHTML = `
+                        <div class="result-image-holder">
+                            <picture>
+                                <source srcset="${perfume.webp}" type="image/webp">
+                                <img src="${perfume.image}" alt="Your blend: ${perfume.name}" loading="lazy" width="140" height="140" onerror="this.src='${perfume.fallback}'">
+                            </picture>
+                        </div>
+                        <p>Your Custom Blend: <strong>${perfume.name}</strong></p>
+                    `;
+                    retakeButton.style.display = "inline-block";
+                    confetti({ particleCount: 100, spread: 25, origin: { y: 0.6 } });
+                }, 1000);
+            }
+        }
+
+        function retakeMakeQuiz() {
+            const resultContainer = document.getElementById("makeResult");
+            const retakeButton = document.getElementById("retakeMakeQuiz");
+            const selectedContainer = document.getElementById("selectedIngredients");
+            if (resultContainer && retakeButton && selectedContainer) {
+                resultContainer.style.display = "none";
+                retakeButton.style.display = "none";
+                selectedContainer.textContent = "";
+            }
+            document.querySelectorAll(".ingredient").forEach(el => el.classList.remove("selected"));
+        }
+
+        function submitRSVP(event) {
+            event.preventDefault();
+            const name = document.getElementById("name")?.value.trim();
+            const email = document.getElementById("email")?.value.trim();
+            const phone = document.getElementById("phone")?.value.trim();
+            const company = document.getElementById("company")?.value.trim();
+            const emailRegex = /[^\s@]+@[^\s@]+\.[^\s@]+$/;
+            if (!name || !email) return showError("Please fill in all required fields!");
+            if (!emailRegex.test(email)) return showError("Please enter a valid email address!");
+            let message = `Thank you, ${name}! Your RSVP is confirmed. We'll contact you at ${email}.`;
+            if (phone) message += ` Phone: ${phone}.`;
+            if (company) message += ` Company: ${company}.`;
+            showError(message);
+            confetti({ particleCount: 100, spread: 70, origin: { y: 0.6 } });
+            document.getElementById("rsvpForm").reset();
+        }
+
+        function toggleMenu() {
+            const navLinks = document.querySelector(".nav-links");
+            const menuToggle = document.querySelector(".menu-toggle");
+            navLinks.classList.toggle("active");
+            const isActive = navLinks.classList.contains("active");
+            menuToggle.setAttribute("aria-expanded", isActive);
+            menuToggle.innerHTML = `<i class="fas ${isActive ? "fa-times" : "fa-bars"}"></i>`;
+        }
+
+        function showScentModal(element) {
+            const modal = document.getElementById("scentModal");
+            const title = document.getElementById("modalTitle");
+            const image = document.getElementById("modalImage");
+            const story = document.getElementById("modalStory");
+            if (!modal || !title || !image || !story) {
+                console.error("Modal elements not found");
+                showError("Error opening scent details. Please try again.");
+                return;
+            }
+            const scentName = element.dataset.scentName;
+            const storyText = scentStories[scentName] || "A unique fragrance crafted with passion.";
+            title.textContent = scentName;
+            image.src = element.src;
+            image.alt = element.alt;
+            image.onerror = () => { image.src = element.onerror.src; };
+            story.textContent = storyText;
+            modal.style.display = "flex";
+            trapFocus(modal);
+        }
+
+        function closeModal() {
+            const modal = document.getElementById("scentModal");
+            if (modal) modal.style.display = "none";
+        }
+
+        function trapFocus(modal) {
+            const focusable = modal.querySelectorAll('button, [href], input, select, textarea, [tabindex]:not([tabindex="-1"])');
+            const first = focusable[0];
+            const last = focusable[focusable.length - 1];
+            modal.addEventListener("keydown", e => {
+                if (e.key === "Tab") {
+                    if (e.shiftKey && document.activeElement === first) {
+                        e.preventDefault();
+                        last.focus();
+                    } else if (!e.shiftKey && document.activeElement === last) {
+                        e.preventDefault();
+                        first.focus();
+                    }
+                }
+            });
+        }
+
+        document.querySelectorAll(".gallery img").forEach(img => img.addEventListener("click", () => showScentModal(img)));
+        document.querySelector(".modal .close").addEventListener("click", closeModal);
+        document.addEventListener("click", e => { if (e.target === document.getElementById("scentModal")) closeModal(); });
+        document.addEventListener("keydown", e => {
+            if (e.key === "Escape") closeModal();
+            if (e.key === "ArrowRight" && !quizCompleted) nextQuestion();
+            if (e.key === "ArrowLeft" && currentQuestion > 0) previousQuestion();
+        });
+
+        document.addEventListener("DOMContentLoaded", () => {
+            try {
+                initQuizzes();
+                document.getElementById("rsvpForm").addEventListener("submit", submitRSVP);
+                document.getElementById("retakeFindQuiz").addEventListener("click", retakeFindQuiz);
+                document.getElementById("retakeMakeQuiz").addEventListener("click", retakeMakeQuiz);
+                document.getElementById("retakeKnowledgeQuiz").addEventListener("click", retakeKnowledgeQuiz);
+                document.querySelector(".menu-toggle").addEventListener("click", toggleMenu);
+                document.querySelectorAll("section")[0].focus();
+            } catch (error) {
+                console.error("Initialization error:", error);
+                showError("Error loading page. Please refresh.");
+            }
+        });
+    </script>
+</body>
+</html>
