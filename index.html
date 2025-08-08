@@ -1,0 +1,1853 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Kenya Trivia Kids Adventure</title>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" />
+  <script src="https://cdn.jsdelivr.net/npm/canvas-confetti@1.6.0/dist/confetti.browser.min.js"></script>
+  <style>
+    :root {
+      --primary: #009688;
+      --secondary: #FFC107;
+      --accent: #D32F2F; /* Darker red shade */
+      --correct: #4CAF50;
+      --incorrect: #F44336;
+      --text: #333;
+      --light-bg: #E0F7FA;
+      --card-bg: #FFFFFF;
+      --dark-bg: #1A1A1A;
+      --dark-card-bg: #2A2A2A;
+      --dark-text: #E0E0E0;
+    }
+
+    body {
+      font-family: 'Comic Sans MS', 'Comic Neue', cursive;
+      background-color: var(--light-bg);
+      margin: 0;
+      padding: 0;
+      color: var(--text);
+    }
+
+    body.dark-mode {
+      background-color: var(--dark-bg);
+      color: var(--dark-text);
+    }
+
+    body.dark-mode .category-card,
+    body.dark-mode .quiz-container,
+    body.dark-mode .fun-fact-container,
+    body.dark-mode .ideas-section,
+    body.dark-mode .janjez-section,
+    body.dark-mode .personalization-section,
+    body.dark-mode .settings-section {
+      background-color: var(--dark-card-bg);
+    }
+
+    header {
+      background: linear-gradient(135deg, var(--primary) 0%, var(--accent) 100%);
+      color: white;
+      padding: 1rem;
+      text-align: center;
+      box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+    }
+
+    .header-content {
+      max-width: 800px;
+      margin: 0 auto;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+    }
+
+    .stars-display {
+      display: flex;
+      align-items: center;
+      margin-bottom: 0.5rem;
+    }
+
+    .star {
+      color: var(--secondary);
+      font-size: 1.5rem;
+      margin: 0 2px;
+    }
+
+    .main {
+      padding: 1rem;
+      max-width: 800px;
+      margin: 0 auto;
+    }
+
+    .nav-controls {
+      display: flex;
+      justify-content: space-between;
+      margin: 1rem 0;
+    }
+
+    .exit-btn {
+      background-color: var(--accent);
+      color: white;
+      border: none;
+      border-radius: 50px;
+      padding: 0.5rem 1rem;
+      font-weight: bold;
+      cursor: pointer;
+      display: flex;
+      align-items: center;
+      gap: 0.5rem;
+    }
+
+    .lock-icon {
+      background-color: transparent;
+      color: white;
+      border: 2px solid white;
+      border-radius: 50%;
+      width: 36px;
+      height: 36px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      cursor: pointer;
+    }
+
+    .category-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(150px, 1fr));
+      gap: 1rem;
+      margin: 1rem 0;
+    }
+
+    .category-card {
+      background-color: var(--card-bg);
+      border-radius: 16px;
+      padding: 1rem;
+      text-align: center;
+      cursor: pointer;
+      transition: all 0.3s ease;
+      box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+      border: 4px solid transparent;
+    }
+
+    .category-card:hover {
+      transform: translateY(-5px);
+      box-shadow: 0 6px 12px rgba(0,0,0,0.15);
+    }
+
+    .category-card.active {
+      border-color: var(--accent);
+    }
+
+    .category-emoji {
+      font-size: 2.5rem;
+      margin-bottom: 0.5rem;
+    }
+
+    .category-name {
+      font-weight: bold;
+      font-size: 1.1rem;
+    }
+
+    .quiz-container {
+      background-color: var(--card-bg);
+      border-radius: 16px;
+      padding: 1.5rem;
+      margin: 1rem 0;
+      box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+      position: relative;
+      overflow: hidden;
+      min-height: 300px;
+    }
+
+    .results-container {
+      background-color: var(--card-bg);
+      border-radius: 16px;
+      padding: 1.5rem;
+      margin: 1rem 0;
+      box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+      text-align: center;
+    }
+
+    .results-title {
+      color: var(--accent);
+      margin-bottom: 1rem;
+    }
+
+    .retake-btn {
+      background-color: var(--primary);
+      color: white;
+      border: none;
+      border-radius: 8px;
+      padding: 0.8rem;
+      font-weight: bold;
+      cursor: pointer;
+      margin-top: 1rem;
+    }
+
+    .retake-btn:hover {
+      background-color: #00796B;
+    }
+
+    .question-display {
+      margin-bottom: 1.5rem;
+      text-align: center;
+    }
+
+    .question-text {
+      font-size: 1.3rem;
+      margin-bottom: 1rem;
+    }
+
+    .question-image {
+      max-width: 200px;
+      max-height: 150px;
+      border-radius: 8px;
+      margin: 0 auto 1rem;
+      display: block;
+    }
+
+    .options-grid {
+      display: grid;
+      grid-template-columns: 1fr;
+      gap: 0.8rem;
+    }
+
+    .option-btn {
+      padding: 0.8rem;
+      border: none;
+      border-radius: 12px;
+      background-color: var(--primary);
+      color: white;
+      font-size: 1.1rem;
+      cursor: pointer;
+      transition: all 0.2s;
+      text-align: left;
+      display: flex;
+      align-items: center;
+    }
+
+    .option-btn:hover:not(.disabled) {
+      background-color: #00796B;
+      transform: scale(1.02);
+    }
+
+    .option-btn.correct {
+      background-color: var(--correct);
+      animation: pulse 0.5s;
+    }
+
+    .option-btn.incorrect {
+      background-color: var(--incorrect);
+    }
+
+    .option-emoji {
+      margin-right: 0.8rem;
+      font-size: 1.3rem;
+    }
+
+    .disabled {
+      opacity: 0.7;
+      cursor: not-allowed;
+    }
+
+    .progress-container {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      margin-top: 1.5rem;
+    }
+
+    .progress-bar {
+      flex-grow: 1;
+      height: 10px;
+      background-color: #B2DFDB;
+      border-radius: 5px;
+      margin: 0 1rem;
+      overflow: hidden;
+    }
+
+    .progress-fill {
+      height: 100%;
+      background-color: var(--accent);
+      width: 0%;
+      transition: width 0.3s;
+    }
+
+    .nav-btn {
+      padding: 0.6rem 1.2rem;
+      border: none;
+      border-radius: 50px;
+      background-color: var(--accent);
+      color: white;
+      font-weight: bold;
+      cursor: pointer;
+      transition: all 0.2s;
+    }
+
+    .nav-btn:hover:not(:disabled) {
+      background-color: #B71C1C;
+      transform: scale(1.05);
+    }
+
+    .nav-btn:disabled {
+      background-color: #9E9E9E;
+      cursor: not-allowed;
+    }
+
+    .fun-fact-container {
+      background-color: var(--card-bg);
+      border-radius: 16px;
+      padding: 1.5rem;
+      margin: 1rem 0;
+      box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+      text-align: center;
+    }
+
+    .fun-fact-title {
+      color: var(--accent);
+      margin-bottom: 1rem;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+
+    .fun-fact-emoji {
+      margin-right: 0.5rem;
+      font-size: 1.5rem;
+    }
+
+    .fun-fact-image {
+      max-width: 100%;
+      max-height: 200px;
+      border-radius: 8px;
+      margin: 0 auto 1rem;
+      display: block;
+    }
+
+    .fun-fact-text {
+      font-size: 1.1rem;
+      margin-bottom: 1rem;
+    }
+
+    .fun-fact-nav {
+      display: flex;
+      justify-content: center;
+      gap: 1rem;
+    }
+
+    .badge-container {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 1rem;
+      justify-content: center;
+      margin: 1rem 0;
+    }
+
+    .badge {
+      background-color: var(--secondary);
+      color: var(--text);
+      border-radius: 50px;
+      padding: 0.5rem 1rem;
+      font-weight: bold;
+      display: flex;
+      align-items: center;
+      box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+    }
+
+    .badge.unearned {
+      background-color: #B0BEC5;
+      opacity: 0.6;
+    }
+
+    .badge-emoji {
+      margin-right: 0.5rem;
+    }
+
+    .ideas-section {
+      background-color: var(--card-bg);
+      border-radius: 16px;
+      padding: 1.5rem;
+      margin: 1rem 0;
+      box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+    }
+
+    .ideas-title {
+      color: var(--accent);
+      text-align: center;
+      margin-bottom: 1rem;
+    }
+
+    .idea-form {
+      display: flex;
+      flex-direction: column;
+      gap: 1rem;
+    }
+
+    .idea-input {
+      padding: 0.8rem;
+      border: 2px solid #B2DFDB;
+      border-radius: 8px;
+      font-family: inherit;
+      font-size: 1rem;
+    }
+
+    .idea-submit {
+      background-color: var(--primary);
+      color: white;
+      border: none;
+      border-radius: 8px;
+      padding: 0.8rem;
+      font-weight: bold;
+      cursor: pointer;
+      transition: all 0.2s;
+    }
+
+    .idea-submit:hover {
+      background-color: #00796B;
+    }
+
+    .gallery-section {
+      margin: 1rem 0;
+    }
+
+    .gallery-title {
+      color: var(--accent);
+      text-align: center;
+      margin-bottom: 1rem;
+    }
+
+    .gallery-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(150px, 1fr));
+      gap: 1rem;
+    }
+
+    .gallery-card {
+      background-color: var(--card-bg);
+      border-radius: 16px;
+      height: 150px;
+      perspective: 1000px;
+      cursor: pointer;
+      box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+    }
+
+    .gallery-card-inner {
+      position: relative;
+      width: 100%;
+      height: 100%;
+      text-align: center;
+      transition: transform 0.6s;
+      transform-style: preserve-3d;
+    }
+
+    .gallery-card.flipped .gallery-card-inner {
+      transform: rotateY(180deg);
+    }
+
+    .gallery-card-front,
+    .gallery-card-back {
+      position: absolute;
+      width: 100%;
+      height: 100%;
+      backface-visibility: hidden;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+      padding: 1rem;
+      border-radius: 16px;
+    }
+
+    .gallery-card-front {
+      background-color: var(--primary);
+      color: white;
+    }
+
+    .gallery-card-back {
+      background-color: var(--secondary);
+      color: var(--text);
+      transform: rotateY(180deg);
+    }
+
+    .gallery-card-emoji {
+      font-size: 2rem;
+      margin-bottom: 0.5rem;
+    }
+
+    .janjez-section {
+      background-color: var(--card-bg);
+      border-radius: 16px;
+      padding: 1.5rem;
+      margin: 1rem 0;
+      box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+    }
+
+    .janjez-title {
+      color: var(--accent);
+      text-align: center;
+      margin-bottom: 1rem;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 0.5rem;
+    }
+
+    .janjez-tip {
+      background-color: #E3F2FD;
+      border-radius: 8px;
+      padding: 1rem;
+      margin-bottom: 1rem;
+    }
+
+    .janjez-example {
+      background-color: #E8F5E9;
+      border-radius: 8px;
+      padding: 1rem;
+      font-family: monospace;
+    }
+
+    .janjez-input-area {
+      display: flex;
+      flex-direction: column;
+      gap: 1rem;
+      margin-top: 1rem;
+    }
+
+    .janjez-input {
+      padding: 0.8rem;
+      border: 2px solid #B2DFDB;
+      border-radius: 8px;
+      font-family: inherit;
+      font-size: 1rem;
+    }
+
+    .janjez-submit {
+      background-color: var(--primary);
+      color: white;
+      border: none;
+      border-radius: 8px;
+      padding: 0.8rem;
+      font-weight: bold;
+      cursor: pointer;
+      transition: all 0.2s;
+    }
+
+    .janjez-submit:hover {
+      background-color: #00796B;
+    }
+
+    .janjez-response {
+      margin-top: 1rem;
+      padding: 1rem;
+      background-color: #FFF3E0;
+      border-radius: 8px;
+      display: none;
+    }
+
+    .personalization-section {
+      background-color: var(--card-bg);
+      border-radius: 16px;
+      padding: 1.5rem;
+      margin: 1rem 0;
+      box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+    }
+
+    .personalization-title {
+      color: var(--accent);
+      text-align: center;
+      margin-bottom: 1rem;
+    }
+
+    .personalization-form {
+      display: flex;
+      flex-direction: column;
+      gap: 1rem;
+    }
+
+    .personalization-instruction {
+      font-size: 0.9rem;
+      color: var(--text);
+      text-align: center;
+    }
+
+    .personalization-input {
+      padding: 0.8rem;
+      border: 2px solid #B2DFDB;
+      border-radius: 8px;
+      font-family: inherit;
+      font-size: 1rem;
+    }
+
+    .personalization-submit {
+      background-color: var(--primary);
+      color: white;
+      border: none;
+      border-radius: 8px;
+      padding: 0.8rem;
+      font-weight: bold;
+      cursor: pointer;
+      transition: all 0.2s;
+    }
+
+    .personalization-submit:hover {
+      background-color: #00796B;
+    }
+
+    .avatar-options {
+      display: flex;
+      gap: 1rem;
+      justify-content: center;
+      margin: 1rem 0;
+    }
+
+    .avatar-option {
+      width: 50px;
+      height: 50px;
+      border-radius: 50%;
+      cursor: pointer;
+      border: 3px solid transparent;
+      transition: all 0.2s;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 2rem;
+      background-color: var(--light-bg);
+    }
+
+    .avatar-option.selected {
+      border-color: var(--accent);
+      transform: scale(1.1);
+    }
+
+    body.dark-mode .avatar-option {
+      background-color: var(--dark-bg);
+    }
+
+    .score-display {
+      text-align: center;
+      margin: 1rem 0;
+      font-size: 1.2rem;
+    }
+
+    .score-value {
+      font-weight: bold;
+      color: var(--accent);
+    }
+
+    .compliment {
+      font-style: italic;
+      color: var(--primary);
+      margin-top: 0.5rem;
+    }
+
+    .settings-section {
+      background-color: var(--card-bg);
+      border-radius: 16px;
+      padding: 1.5rem;
+      margin: 1rem 0;
+      box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+    }
+
+    .settings-title {
+      color: var(--accent);
+      text-align: center;
+      margin-bottom: 1rem;
+    }
+
+    .settings-option {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      margin-bottom: 1rem;
+    }
+
+    .toggle-switch {
+      position: relative;
+      display: inline-block;
+      width: 60px;
+      height: 34px;
+    }
+
+    .toggle-switch input {
+      opacity: 0;
+      width: 0;
+      height: 0;
+    }
+
+    .toggle-slider {
+      position: absolute;
+      cursor: pointer;
+      top: 0;
+      left: 0;
+      right: 0;
+      bottom: 0;
+      background-color: #ccc;
+      transition: .4s;
+      border-radius: 34px;
+    }
+
+    .toggle-slider:before {
+      position: absolute;
+      content: "";
+      height: 26px;
+      width: 26px;
+      left: 4px;
+      bottom: 4px;
+      background-color: white;
+      transition: .4s;
+      border-radius: 50%;
+    }
+
+    input:checked + .toggle-slider {
+      background-color: var(--primary);
+    }
+
+    input:checked + .toggle-slider:before {
+      transform: translateX(26px);
+    }
+
+    .language-btn {
+      background-color: var(--primary);
+      color: white;
+      border: none;
+      border-radius: 8px;
+      padding: 0.5rem 1rem;
+      font-weight: bold;
+      cursor: pointer;
+      transition: all 0.2s;
+      display: flex;
+      align-items: center;
+      gap: 0.5rem;
+      margin: 0 auto;
+    }
+
+    .language-btn:hover {
+      background-color: #00796B;
+    }
+
+    @keyframes pulse {
+      0% { transform: scale(1); }
+      50% { transform: scale(1.05); }
+      100% { transform: scale(1); }
+    }
+
+    @keyframes slideIn {
+      from { transform: translateY(20px); opacity: 0; }
+      to { transform: translateY(0); opacity: 1; }
+    }
+
+    .slide-in {
+      animation: slideIn 0.5s ease-out;
+    }
+
+    @media (max-width: 600px) {
+      .category-grid, .gallery-grid {
+        grid-template-columns: repeat(2, 1fr);
+      }
+      
+      .question-text {
+        font-size: 1.1rem;
+      }
+      
+      .option-btn {
+        font-size: 1rem;
+        padding: 0.6rem;
+      }
+    }
+  </style>
+</head>
+<body>
+  <header>
+    <div class="header-content">
+      <h1>🇰🇪 Kenya Trivia Kids Adventure</h1>
+      <div class="stars-display">
+        <span>Safari Stars:</span>
+        <span id="starCount">0</span>
+        <span class="star">⭐</span>
+      </div>
+    </div>
+  </header>
+
+  <div class="main">
+    <!-- Settings Section -->
+    <div class="settings-section">
+      <h2 class="settings-title"><i class="fas fa-cog"></i> Settings</h2>
+      <div class="settings-option">
+        <span>Dark Mode:</span>
+        <label class="toggle-switch">
+          <input type="checkbox" id="darkModeToggle">
+          <span class="toggle-slider"></span>
+        </label>
+      </div>
+      <div class="settings-option">
+        <span>Swahili Translation:</span>
+        <button class="language-btn" id="swahiliBtn">
+          <i class="fas fa-language"></i> Swahili Translation
+        </button>
+      </div>
+    </div>
+
+    <!-- Navigation Controls -->
+    <div class="nav-controls">
+      <button class="exit-btn" id="exitBtn">
+        <i class="fas fa-arrow-left"></i> Exit Quiz
+      </button>
+      <div class="lock-icon" id="lockBtn">
+        <i class="fas fa-lock"></i>
+      </div>
+    </div>
+
+    <!-- Category Selection View -->
+    <div id="categoryView">
+      <h2>Choose Your Adventure! <span id="lockIcon"><i class="fas fa-lock"></i></span></h2>
+      <div class="category-grid" id="categoryGrid">
+        <!-- Categories will be loaded here -->
+      </div>
+    </div>
+
+    <!-- Quiz View -->
+    <div id="quizView" style="display: none;">
+      <div class="quiz-container">
+        <div class="question-display">
+          <div class="question-text" id="questionText"></div>
+          <img id="questionImage" class="question-image" style="display: none;">
+        </div>
+        
+        <div class="options-grid" id="optionsGrid">
+          <!-- Options will be loaded here -->
+        </div>
+        
+        <div class="progress-container">
+          <button class="nav-btn" id="prevBtn" disabled>← Back</button>
+          <div class="progress-bar">
+            <div class="progress-fill" id="progressFill"></div>
+          </div>
+          <button class="nav-btn" id="nextBtn" disabled>Next →</button>
+        </div>
+      </div>
+
+      <!-- Score Display -->
+      <div class="score-display">
+        <div>Your score: <span class="score-value" id="scoreValue">0</span>/5</div>
+        <div class="compliment" id="complimentText"></div>
+      </div>
+    </div>
+
+    <!-- Results View -->
+    <div id="resultsView" style="display: none;">
+      <div class="results-container">
+        <h2 class="results-title">Quiz Complete! 🎉</h2>
+        <div>Your final score: <span class="score-value" id="finalScoreValue">0</span>/5</div>
+        <div class="compliment" id="finalComplimentText"></div>
+        <button class="retake-btn" id="retakeBtn">Retake Quiz</button>
+      </div>
+    </div>
+
+    <!-- Fun Facts -->
+    <div class="fun-fact-container">
+      <div class="fun-fact-title">
+        <span class="fun-fact-emoji">💡</span>
+        <h3>Did You Know?</h3>
+      </div>
+      <img id="funFactImage" class="fun-fact-image" style="display: none;">
+      <div class="fun-fact-text" id="funFactText"></div>
+      <div class="fun-fact-nav">
+        <button class="nav-btn" id="nextFactBtn">Next Fun Fact</button>
+        <button class="nav-btn" id="hearFactBtn">🔊 Hear It</button>
+      </div>
+    </div>
+
+    <!-- Ideas Sharing Section -->
+    <div class="ideas-section">
+      <h2 class="ideas-title"><i class="fas fa-lightbulb"></i> Share Your Ideas!</h2>
+      <form class="idea-form" id="ideaForm">
+        <input type="text" class="idea-input" id="ideaInput" placeholder="What's your fun idea about Kenya?" required>
+        <button type="submit" class="idea-submit">Share My Idea</button>
+      </form>
+    </div>
+
+    <!-- Janjez AI Section -->
+    <div class="janjez-section">
+      <h2 class="janjez-title"><i class="fas fa-robot"></i> Janjez AI Tips</h2>
+      <div class="janjez-tip">
+        <h3>Hello there, young explorer! Ready for an adventure? 🤖</h3>
+        <p>I'm Janjez, your AI friend who can help you learn about Kenya in fun ways! I'll also teach you how to use AI to explore, create stories, and answer your questions!</p>
+      </div>
+      <div class="janjez-tip">
+        <h3>Try asking me:</h3>
+        <div class="janjez-example">
+          "Tell me a fun story about a lion and giraffe who become friends in the Maasai Mara, using simple words for kids."
+        </div>
+      </div>
+      <div class="janjez-input-area">
+        <input type="text" class="janjez-input" id="janjezInput" placeholder="Ask Janjez anything about Kenya...">
+        <button class="janjez-submit" id="janjezSubmit">Ask Janjez</button>
+      </div>
+      <div class="janjez-response" id="janjezResponse"></div>
+    </div>
+
+    <!-- Personalization Section -->
+    <div class="personalization-section">
+      <h2 class="personalization-title"><i class="fas fa-user-astronaut"></i> Personalize Your Adventure</h2>
+      <p class="personalization-instruction">Change your name from 'Explorer' to something fun!</p>
+      <form class="personalization-form" id="personalizationForm">
+        <input type="text" class="personalization-input" id="playerNameInput" placeholder="Enter your name">
+        <div class="avatar-options">
+          <div class="avatar-option" data-avatar="1">🧑‍🚀</div>
+          <div class="avatar-option" data-avatar="2">🦒</div>
+          <div class="avatar-option" data-avatar="3">🦁</div>
+          <div class="avatar-option" data-avatar="4">🐘</div>
+        </div>
+        <button type="submit" class="personalization-submit">Save Changes</button>
+      </form>
+    </div>
+
+    <!-- Gallery Section -->
+    <div class="gallery-section">
+      <h2 class="gallery-title"><i class="fas fa-images"></i> Learning Gallery</h2>
+      <div class="gallery-grid" id="galleryGrid">
+        <!-- Gallery cards will be loaded here -->
+      </div>
+    </div>
+
+    <!-- Badges Earned -->
+    <div id="badgesView">
+      <h2><i class="fas fa-trophy"></i> Your Safari Badges</h2>
+      <div class="badge-container" id="badgeContainer">
+        <!-- Badges will be displayed here -->
+      </div>
+    </div>
+  </div>
+
+  <script>
+    // Game State
+    let currentState = {
+      mode: 'categories',
+      currentCategory: null,
+      currentQuestionIndex: 0,
+      selectedAnswer: null,
+      score: 0,
+      stars: parseInt(localStorage.getItem('safariStars')) || 0,
+      badges: JSON.parse(localStorage.getItem('safariBadges')) || [],
+      answeredQuestions: 0,
+      locked: localStorage.getItem('kidsModeLocked') === 'true',
+      sharedIdeas: JSON.parse(localStorage.getItem('sharedIdeas')) || [],
+      audioOn: localStorage.getItem('audioOn') !== 'false',
+      playerName: localStorage.getItem('playerName') || 'Explorer',
+      playerAvatar: localStorage.getItem('playerAvatar') || '1',
+      currentLanguage: localStorage.getItem('currentLanguage') || 'en',
+      darkMode: localStorage.getItem('darkMode') === 'true',
+      isSpeaking: false
+    };
+
+    // Kids Database
+    const kidsDatabase = {
+      categories: [
+        {
+          id: 'animals',
+          name: 'Safari Animals',
+          emoji: '🦁',
+          color: '#FF9800',
+          questions: [
+            {
+              question: "Which animal has a long neck and eats leaves from tall trees? / Ni mnyama gani mwenye shingo ndefu na hula majani kutoka miti mirefu?",
+              options: [
+                { text: "Elephant / Tembo", emoji: "🐘" },
+                { text: "Giraffe / Twiga", emoji: "🦒" },
+                { text: "Zebra / Punda Milia", emoji: "🦓" }
+              ],
+              correct: 1,
+              image: "https://source.unsplash.com/random/300x200/?giraffe",
+              fact: "Giraffes have the same number of neck bones as humans - just seven! But each bone is much longer. / Twiga wana idadi sawa ya mifupa ya shingo kama binadamu - saba tu! Lakini kila mfupa ni mrefu zaidi."
+            },
+            {
+              question: "Which big cat is called the 'king of the jungle'? / Ni simba mkubwa gani anayeitwa 'mfalme wa msitu'?",
+              options: [
+                { text: "Cheetah / Duma", emoji: "🐆" },
+                { text: "Lion / Simba", emoji: "🦁" },
+                { text: "Leopard / Chui", emoji: "🐅" }
+              ],
+              correct: 1,
+              image: "https://source.unsplash.com/random/300x200/?lion",
+              fact: "Lions can sleep up to 20 hours a day! They're the laziest of the big cats. / Simba wanaweza kulala hadi saa 20 kwa siku! Wao ni wavivu zaidi kati ya simba wakubwa."
+            },
+            {
+              question: "Which animal has black and white stripes? / Ni mnyama gani mwenye milia myeusi na meupe?",
+              options: [
+                { text: "Elephant / Tembo", emoji: "🐘" },
+                { text: "Giraffe / Twiga", emoji: "🦒" },
+                { text: "Zebra / Punda Milia", emoji: "🦓" }
+              ],
+              correct: 2,
+              image: "https://source.unsplash.com/random/300x200/?zebra",
+              fact: "No two zebras have the same stripe pattern - each one is unique, just like human fingerprints! / Hakuna punda milia wawili wenye muundo wa milia sawa - kila mmoja ana muundo wake kama alama za vidole vya binadamu!"
+            },
+            {
+              question: "Which animal is the tallest in the world? / Ni mnyama gani mrefu zaidi duniani?",
+              options: [
+                { text: "Elephant / Tembo", emoji: "🐘" },
+                { text: "Giraffe / Twiga", emoji: "🦒" },
+                { text: "Rhino / Kifaru", emoji: "🦏" }
+              ],
+              correct: 1,
+              image: "https://source.unsplash.com/random/300x200/?giraffe",
+              fact: "A giraffe's legs alone are taller than many humans - about 6 feet (1.8 meters) each! / Miguu ya twiga pekee ni mirefu kuliko binadamu wengi - karibu futi 6 (mita 1.8) kila mmoja!"
+            },
+            {
+              question: "Which animal has a trunk? / Ni mnyama gani mwenye mkonga?",
+              options: [
+                { text: "Elephant / Tembo", emoji: "🐘" },
+                { text: "Hippo / Kiboko", emoji: "🦛" },
+                { text: "Rhino / Kifaru", emoji: "🦏" }
+              ],
+              correct: 0,
+              image: "https://source.unsplash.com/random/300x200/?elephant",
+              fact: "An elephant's trunk has about 40,000 muscles! It can pick up something as small as a grain of rice or as big as a tree. / Mkonga wa tembo una misuli takriban 40,000! Unaweza kunyakua kitu kidogo kama chembe cha mchele au kikubwa kama mti."
+            }
+          ],
+          badge: {
+            name: "Safari Explorer",
+            emoji: "🦁",
+            threshold: 3
+          }
+        },
+        {
+          id: 'food',
+          name: 'Kenyan Foods',
+          emoji: '🍲',
+          color: '#4CAF50',
+          questions: [
+            {
+              question: "What is the white, thick food made from maize flour? / Ni chakula gani nyeupe, nene kinachotengenezwa kwa unga wa mahindi?",
+              options: [
+                { text: "Chapati / Chapati", emoji: "🫓" },
+                { text: "Ugali / Ugali", emoji: "🍚" },
+                { text: "Rice / Wali", emoji: "🍛" }
+              ],
+              correct: 1,
+              image: "https://source.unsplash.com/random/300x200/?ugali",
+              fact: "Ugali is eaten with almost every meal in many Kenyan homes and is made with just flour and water! / Ugali huliwa na karibu kila mlo katika nyumba nyingi za Kenya na hutengenezwa kwa unga na maji tu!"
+            },
+            {
+              question: "Which sweet fruit grows in bunches in Kenya? / Ni tunda gani tamu linalokua kwenye mashada nchini Kenya?",
+              options: [
+                { text: "Mango / Embe", emoji: "🥭" },
+                { text: "Banana / Ndizi", emoji: "🍌" },
+                { text: "Orange / Chungwa", emoji: "🍊" }
+              ],
+              correct: 1,
+              image: "https://source.unsplash.com/random/300x200/?banana",
+              fact: "A single banana plant can produce up to 150 bananas in one bunch called a 'hand'! / Mmea mmoja wa ndizi unaweza kutoa hadi ndizi 150 kwenye shada moja linaloitwa 'mkono'!"
+            },
+            {
+              question: "What is the name of the Kenyan tea that is boiled with milk and spices? / Ni chai gani ya Kenya inayochemka na maziwa na viungo?",
+              options: [
+                { text: "Masala Chai / Masala Chai", emoji: "☕" },
+                { text: "Chai Maziwa / Chai Maziwa", emoji: "🥛" },
+                { text: "English Tea / Chai ya Kiingereza", emoji: "🍵" }
+              ],
+              correct: 1,
+              image: "https://source.unsplash.com/random/300x200/?kenyan+tea",
+              fact: "Chai maziwa is a beloved Kenyan drink, often enjoyed with mandazi (fried dough) for breakfast. / Chai maziwa ni kinywaji kilichopendwa Kenya, mara nyingi hufurahia na mandazi (keki za kukaanga) kwa kiamsha kinywa."
+            },
+            {
+              question: "Which of these is a traditional Kenyan meat dish? / Ni ipi kati ya hizi ni mlo wa kitamaduni wa nyama wa Kenya?",
+              options: [
+                { text: "Nyama Choma / Nyama Choma", emoji: "🍖" },
+                { text: "Pilau / Pilau", emoji: "🍛" },
+                { text: "Biryani / Biryani", emoji: "🍲" }
+              ],
+              correct: 0,
+              image: "https://source.unsplash.com/random/300x200/?nyama+choma",
+              fact: "Nyama Choma is grilled meat, usually goat or beef, and is a favorite at Kenyan gatherings. / Nyama Choma ni nyama iliyochomwa, kawaida ni mbuzi au ng'ombe, na inapendwa sana katika mikusanyiko ya Kenya."
+            },
+            {
+              question: "What is the name of the fried dough snack popular in Kenya? / Ni jina gani la vitafunio vya unga vilivyokaanga maarufu Kenya?",
+              options: [
+                { text: "Samosa / Sambusa", emoji: "🥟" },
+                { text: "Mandazi / Mandazi", emoji: "🍩" },
+                { text: "Doughnut / Donati", emoji: "🍩" }
+              ],
+              correct: 1,
+              image: "https://source.unsplash.com/random/300x200/?mandazi",
+              fact: "Mandazi are slightly sweet, fluffy fried bread that Kenyans enjoy with tea. They're sometimes called 'Swahili buns'. / Mandazi ni mikate kidogo tamu, laini iliyokaanga ambayo Wakenya hufurahia na chai. Wakati mwingine huitwa 'mikate ya Kiswahili'."
+            }
+          ],
+          badge: {
+            name: "Food Adventurer",
+            emoji: "🍲",
+            threshold: 3
+          }
+        },
+        {
+          id: 'culture',
+          name: 'Kenyan Culture',
+          emoji: '🎭',
+          color: '#9C27B0',
+          questions: [
+            {
+              question: "Which of these is a traditional Kenyan dance? / Ni ipi kati ya hizi ni ngoma ya kitamaduni ya Kenya?",
+              options: [
+                { text: "Salsa / Salsa", emoji: "💃" },
+                { text: "Hip Hop / Hip Hop", emoji: "🕺" },
+                { text: "Kikuyu Mugithi / Mugithi wa Kikuyu", emoji: "🎶" }
+              ],
+              correct: 2,
+              image: "https://source.unsplash.com/random/300x200/?kenyan+dance",
+              fact: "Mugithi is a traditional dance and music style of the Kikuyu people, often accompanied by guitar and rhythmic clapping. / Mugithi ni mtindo wa muziki na ngoma wa kitamaduni wa Wakikuyu, mara nyingi huambatana na gitaa na makofi ya ritimu."
+            },
+            {
+              question: "What is the name of the colorful Kenyan fabric often worn as wraps? / Ni jina gani la kitambaa cha Kenya chenye rangi mara nyingi huvaliwa kama mavazi?",
+              options: [
+                { text: "Kanga / Kanga", emoji: "🧣" },
+                { text: "Jeans / Jeansi", emoji: "👖" },
+                { text: "Silk / Hariri", emoji: "👗" }
+              ],
+              correct: 0,
+              image: "https://source.unsplash.com/random/300x200/?kanga+fabric",
+              fact: "Kanga is a colorful fabric with Swahili sayings printed on it, often given as gifts and used for clothing. / Kanga ni kitambaa chenye rangi zenye misemo ya Kiswahili kwenye uchapishaji, mara nyingi hutolewa kama zawadi na kutumika kwa mavazi."
+            },
+            {
+              question: "Which of these is a traditional Kenyan musical instrument? / Ni ipi kati ya hizi ni ala ya muziki ya kitamaduni ya Kenya?",
+              options: [
+                { text: "Guitar / Gitaa", emoji: "🎸" },
+                { text: "Orutu / Orutu", emoji: "🎻" },
+                { text: "Piano / Piano", emoji: "🎹" }
+              ],
+              correct: 1,
+              image: "https://source.unsplash.com/random/300x200/?kenyan+instrument",
+              fact: "The orutu is a one-stringed fiddle from the Luo community, used in traditional music. / Orutu ni fidla yenye kamba moja kutoka kwa jamii ya Luo, hutumiwa katika muziki wa kitamaduni."
+            },
+            {
+              question: "What is the name of the Kenyan coastal dish made with coconut and spices? / Ni jina gani la mlo wa pwani wa Kenya uliotengenezwa na nazi na viungo?",
+              options: [
+                { text: "Ugali / Ugali", emoji: "🍚" },
+                { text: "Pilau / Pilau", emoji: "🍛" },
+                { text: "Biryani / Biryani", emoji: "🍲" }
+              ],
+              correct: 1,
+              image: "https://source.unsplash.com/random/300x200/?kenyan+pilau",
+              fact: "Pilau is a fragrant rice dish cooked with coconut milk, meat, and spices like cumin, cinnamon, and cloves. / Pilau ni mlo wa mchele wenye harufu nzuri unaopikwa na maziwa ya nazi, nyama, na viungo kama jamvi, mdalasini, na karafuu."
+            },
+            {
+              question: "Which of these is a traditional Maasai home? / Ni ipi kati ya hizi ni nyumba ya kitamaduni ya Wamaasai?",
+              options: [
+                { text: "Manyatta / Manyatta", emoji: "🏠" },
+                { text: "Skyscraper / Mnara", emoji: "🏙️" },
+                { text: "Apartment / Ghorofa", emoji: "🏢" }
+              ],
+              correct: 0,
+              image: "https://source.unsplash.com/random/300x200/?maasai+manyatta",
+              fact: "A manyatta is a traditional Maasai homestead made of mud, sticks, grass, and cow dung, usually built by women. / Manyatta ni makao ya kitamaduni ya Wamaasai yanayotengenezwa kwa matope, vijiti, nyasi, na kinyesi cha ng'ombe, kawaida hujengwa na wanawake."
+            }
+          ],
+          badge: {
+            name: "Culture Expert",
+            emoji: "🎭",
+            threshold: 3
+          }
+        },
+        {
+          id: 'geography',
+          name: 'Kenyan Geography',
+          emoji: '🗺️',
+          color: '#3F51B5',
+          questions: [
+            {
+              question: "Which is the highest mountain in Kenya? / Ni mlima gani mrefu zaidi Kenya?",
+              options: [
+                { text: "Mount Kenya / Mlima Kenya", emoji: "🏔️" },
+                { text: "Mount Kilimanjaro / Mlima Kilimanjaro", emoji: "⛰️" },
+                { text: "Mount Elgon / Mlima Elgon", emoji: "🗻" }
+              ],
+              correct: 0,
+              image: "https://source.unsplash.com/random/300x200/?mount+kenya",
+              fact: "Mount Kenya is the second-highest mountain in Africa at 5,199 meters (17,057 feet) and has glaciers near the equator! / Mlima Kenya ni mlima wa pili kwa urefu barani Afrika kwa mita 5,199 (futi 17,057) na una barafu karibu na ikweta!"
+            },
+            {
+              question: "Which of these is a famous Kenyan lake known for flamingos? / Ni ipi kati ya hizi ziwa maarufu la Kenya lenye ndege flamingo?",
+              options: [
+                { text: "Lake Victoria / Ziwa Victoria", emoji: "🌊" },
+                { text: "Lake Nakuru / Ziwa Nakuru", emoji: "🦩" },
+                { text: "Lake Naivasha / Ziwa Naivasha", emoji: "🌅" }
+              ],
+              correct: 1,
+              image: "https://source.unsplash.com/random/300x200/?lake+nakuru",
+              fact: "Lake Nakuru is famous for its millions of flamingos that feed on algae in the lake, turning the shores pink! / Ziwa Nakuru ni maarufu kwa mamilioni ya ndege flamingo wanaokula mwani ziwani, na kugeuza ufukwe kuwa waridi!"
+            },
+            {
+              question: "Which desert is in northern Kenya? / Jangwa gani liko kaskazini mwa Kenya?",
+              options: [
+                { text: "Sahara Desert / Jangwa la Sahara", emoji: "🏜️" },
+                { text: "Kalahari Desert / Jangwa la Kalahari", emoji: "🌵" },
+                { text: "Chalbi Desert / Jangwa la Chalbi", emoji: "🐪" }
+              ],
+              correct: 2,
+              image: "https://source.unsplash.com/random/300x200/?chalbi+desert",
+              fact: "The Chalbi Desert is one of the hottest places in Kenya and was once a lake that dried up thousands of years ago. / Jangwa la Chalbi ni moja ya maeneo yenye joto kali zaidi Kenya na hapo awali lilikuwa ziwa lililokauka maelfu ya miaka iliyopita."
+            },
+            {
+              question: "Which river flows through Kenya and is the longest in the world? / Mto gani unaotiririka Kenya na ni mrefu zaidi duniani?",
+              options: [
+                { text: "Nile River / Mto Nile", emoji: "🌊" },
+                { text: "Tana River / Mto Tana", emoji: "💧" },
+                { text: "Athi River / Mto Athi", emoji: "🚣" }
+              ],
+              correct: 0,
+              image: "https://source.unsplash.com/random/300x200/?nile+river",
+              fact: "The Nile is the world's longest river at 6,650 km (4,130 miles). Its source is Lake Victoria in Kenya. / Nile ni mto mrefu zaidi duniani kwa kilomita 6,650 (maili 4,130). Chanzo chake ni Ziwa Victoria nchini Kenya."
+            },
+            {
+              question: "Which of these is a famous Kenyan national park? / Ni ipi kati ya hizi mbuga ya kitaifa maarufu ya Kenya?",
+              options: [
+                { text: "Maasai Mara / Mbuga ya Maasai Mara", emoji: "🦁" },
+                { text: "Serengeti / Mbuga ya Serengeti", emoji: "🐘" },
+                { text: "Kruger / Mbuga ya Kruger", emoji: "🦏" }
+              ],
+              correct: 0,
+              image: "https://source.unsplash.com/random/300x200/?maasai+mara",
+              fact: "The Maasai Mara is famous for the Great Migration where millions of wildebeest cross the Mara River. / Mbuga ya Maasai Mara ni maarufu kwa Uhamiaji Mkuu ambapo mamilioni ya nyumbu huvuka Mto Mara."
+            }
+          ],
+          badge: {
+            name: "Geography Whiz",
+            emoji: "🗺️",
+            threshold: 3
+          }
+        }
+      ],
+      funFacts: [
+        {
+          text: "A giraffe's tongue is so long it can lick its own ears! It's also blue-black to prevent sunburn. / Ulimi wa twiga ni mrefu sana hadi anaweza kulamba masikio yake mwenyewe! Pia ni rangi ya bluu-nusi kuzuia kuchoma na jua.",
+          image: "https://source.unsplash.com/random/400x300/?giraffe+tongue"
+        },
+        {
+          text: "Kenya has over 50 national parks and reserves! That's more than most countries in the world. / Kenya ina zaidi ya mbuga 50 za kitaifa na hifadhi! Hiyo ni zaidi ya nchi nyingi ulimwenguni.",
+          image: "https://source.unsplash.com/random/400x300/?kenya+national+park"
+        },
+        {
+          text: "The Maasai people are famous for their jumping dance called 'Adamu'. Warriors can jump over 2 feet high! / Wamaasai wana sifa kwa ngoma yao ya kuruka inayoitwa 'Adamu'. Mashujaa wanaweza kuruka zaidi ya futi 2 juu!",
+          image: "https://source.unsplash.com/random/400x300/?maasai+jumping"
+        },
+        {
+          text: "Lake Turkana in Kenya is the world's largest permanent desert lake and largest alkaline lake. / Ziwa Turkana nchini Kenya ndilo ziwa kubwa zaidi la jangwa na ziwa kubwa zaidi la alkali duniani.",
+          image: "https://source.unsplash.com/random/400x300/?lake+turkana"
+        },
+        {
+          text: "Kenya is home to the fastest animals on land (cheetah) and in the air (peregrine falcon)! / Kenya ni nyumbani kwa wanyama wa kasi zaidi ardhini (duma) na angani (kozi)!",
+          image: "https://source.unsplash.com/random/400x300/?cheetah+falcon"
+        }
+      ],
+      galleryCards: [
+        {
+          front: {
+            emoji: "🤖",
+            text: "What is AI?"
+          },
+          back: {
+            emoji: "💡",
+            text: "AI (Artificial Intelligence) is like a smart computer brain that can learn and help with answers, just like this game!"
+          }
+        },
+        {
+          front: {
+            emoji: "🌍",
+            text: "Kenya's Big Five"
+          },
+          back: {
+            emoji: "🦁",
+            text: "Lion, Leopard, Rhino, Elephant & Buffalo - the five amazing animals to spot on safari!"
+          }
+        },
+        {
+          front: {
+            emoji: "🌱",
+            text: "Plant a Tree"
+          },
+          back: {
+            emoji: "🌳",
+            text: "Trees give us oxygen, shade, and homes for animals. Plant one today!"
+          }
+        },
+        {
+          front: {
+            emoji: "💻",
+            text: "Coding for Kids"
+          },
+          back: {
+            emoji: "👩‍💻",
+            text: "Coding is like giving computers instructions to create games and apps. You can learn too!"
+          }
+        }
+      ],
+      compliments: [
+        "Well done, champion!",
+        "Awesome job!",
+        "You're a superstar!",
+        "Brilliant work!",
+        "You're so smart!",
+        "Fantastic effort!",
+        "You're amazing!",
+        "Keep up the great work!",
+        "You're a quick learner!",
+        "You're getting better every day!"
+      ],
+      placeholderBadges: [
+        { id: 'animals', name: 'Safari Explorer', emoji: '🦁' },
+        { id: 'food', name: 'Food Adventurer', emoji: '🍲' },
+        { id: 'culture', name: 'Culture Expert', emoji: '🎭' }
+      ]
+    };
+
+    // DOM Elements
+    const elements = {
+      categoryView: document.getElementById('categoryView'),
+      quizView: document.getElementById('quizView'),
+      resultsView: document.getElementById('resultsView'),
+      categoryGrid: document.getElementById('categoryGrid'),
+      questionText: document.getElementById('questionText'),
+      questionImage: document.getElementById('questionImage'),
+      optionsGrid: document.getElementById('optionsGrid'),
+      prevBtn: document.getElementById('prevBtn'),
+      nextBtn: document.getElementById('nextBtn'),
+      progressFill: document.getElementById('progressFill'),
+      funFactText: document.getElementById('funFactText'),
+      funFactImage: document.getElementById('funFactImage'),
+      nextFactBtn: document.getElementById('nextFactBtn'),
+      hearFactBtn: document.getElementById('hearFactBtn'),
+      starCount: document.getElementById('starCount'),
+      badgeContainer: document.getElementById('badgeContainer'),
+      badgesView: document.getElementById('badgesView'),
+      exitBtn: document.getElementById('exitBtn'),
+      lockBtn: document.getElementById('lockBtn'),
+      lockIcon: document.getElementById('lockIcon'),
+      ideaForm: document.getElementById('ideaForm'),
+      ideaInput: document.getElementById('ideaInput'),
+      galleryGrid: document.getElementById('galleryGrid'),
+      janjezInput: document.getElementById('janjezInput'),
+      janjezSubmit: document.getElementById('janjezSubmit'),
+      janjezResponse: document.getElementById('janjezResponse'),
+      personalizationForm: document.getElementById('personalizationForm'),
+      playerNameInput: document.getElementById('playerNameInput'),
+      darkModeToggle: document.getElementById('darkModeToggle'),
+      swahiliBtn: document.getElementById('swahiliBtn'),
+      scoreValue: document.getElementById('scoreValue'),
+      complimentText: document.getElementById('complimentText'),
+      finalScoreValue: document.getElementById('finalScoreValue'),
+      finalComplimentText: document.getElementById('finalComplimentText'),
+      retakeBtn: document.getElementById('retakeBtn')
+    };
+
+    // Initialize the game
+    function init() {
+      renderCategories();
+      updateStarDisplay();
+      showRandomFunFact();
+      renderBadges();
+      renderGalleryCards();
+      setupEventListeners();
+      updateLockState();
+      loadPersonalization();
+      toggleDarkMode(currentState.darkMode);
+      elements.darkModeToggle.checked = currentState.darkMode;
+      renderSharedIdeas();
+    }
+
+    // Render category cards
+    function renderCategories() {
+      elements.categoryGrid.innerHTML = '';
+      
+      kidsDatabase.categories.forEach(category => {
+        const card = document.createElement('div');
+        card.className = 'category-card';
+        card.style.backgroundColor = `${category.color}20`;
+        card.style.borderColor = category.color;
+        card.innerHTML = `
+          <div class="category-emoji">${category.emoji}</div>
+          <div class="category-name">${category.name}</div>
+        `;
+        
+        card.addEventListener('click', () => startQuiz(category));
+        elements.categoryGrid.appendChild(card);
+      });
+    }
+
+    // Start a quiz for a specific category
+    function startQuiz(category) {
+      currentState.mode = 'quiz';
+      currentState.currentCategory = category;
+      currentState.currentQuestionIndex = 0;
+      currentState.selectedAnswer = null;
+      currentState.answeredQuestions = 0;
+      currentState.score = 0;
+      
+      elements.categoryView.style.display = 'none';
+      elements.quizView.style.display = 'block';
+      elements.resultsView.style.display = 'none';
+      elements.badgesView.style.display = 'none';
+      elements.exitBtn.style.display = 'block';
+      elements.lockBtn.style.display = 'block';
+      
+      renderQuestion();
+      updateScoreDisplay();
+    }
+
+    // Exit quiz and return to categories
+    function exitQuiz() {
+      if (currentState.locked) {
+        alert("Kids Mode is locked! Ask an adult to unlock it.");
+        return;
+      }
+      
+      currentState.mode = 'categories';
+      currentState.currentCategory = null;
+      elements.quizView.style.display = 'none';
+      elements.resultsView.style.display = 'none';
+      elements.categoryView.style.display = 'block';
+      elements.badgesView.style.display = 'block';
+      elements.exitBtn.style.display = 'none';
+      elements.lockBtn.style.display = 'block';
+    }
+
+    // Render the current question
+    function renderQuestion() {
+      const question = currentState.currentCategory.questions[currentState.currentQuestionIndex];
+      
+      elements.questionText.textContent = question.question.split(' / ')[currentState.currentLanguage === 'sw' ? 1 : 0];
+      
+      if (question.image) {
+        elements.questionImage.src = question.image;
+        elements.questionImage.style.display = 'block';
+      } else {
+        elements.questionImage.style.display = 'none';
+      }
+      
+      elements.optionsGrid.innerHTML = '';
+      question.options.forEach((option, index) => {
+        const btn = document.createElement('button');
+        btn.className = 'option-btn';
+        if (currentState.selectedAnswer !== null) {
+          btn.disabled = true;
+          if (index === question.correct) {
+            btn.classList.add('correct');
+          } else if (index === currentState.selectedAnswer) {
+            btn.classList.add('incorrect');
+          }
+        }
+        
+        btn.innerHTML = `
+          <span class="option-emoji">${option.emoji}</span>
+          <span>${option.text.split(' / ')[currentState.currentLanguage === 'sw' ? 1 : 0]}</span>
+        `;
+        
+        btn.addEventListener('click', () => selectAnswer(index));
+        elements.optionsGrid.appendChild(btn);
+      });
+      
+      const progress = ((currentState.currentQuestionIndex + 1) / currentState.currentCategory.questions.length) * 100;
+      elements.progressFill.style.width = `${progress}%`;
+      
+      elements.prevBtn.disabled = currentState.currentQuestionIndex === 0;
+      elements.nextBtn.disabled = currentState.selectedAnswer === null;
+    }
+
+    // Handle answer selection
+    function selectAnswer(index) {
+      if (currentState.selectedAnswer !== null) return;
+      
+      currentState.selectedAnswer = index;
+      const question = currentState.currentCategory.questions[currentState.currentQuestionIndex];
+      
+      if (index === question.correct) {
+        currentState.score++;
+        currentState.stars += 5;
+        updateStarDisplay();
+        localStorage.setItem('safariStars', currentState.stars);
+        
+        confetti({
+          particleCount: 100,
+          spread: 70,
+          origin: { y: 0.6 }
+        });
+      }
+      
+      showFunFact(question.fact, question.image);
+      
+      elements.nextBtn.disabled = false;
+      
+      const optionBtns = elements.optionsGrid.querySelectorAll('.option-btn');
+      optionBtns.forEach((btn, i) => {
+        btn.disabled = true;
+        if (i === question.correct) {
+          btn.classList.add('correct');
+        } else if (i === index && i !== question.correct) {
+          btn.classList.add('incorrect');
+        }
+      });
+      
+      updateScoreDisplay();
+      
+      checkForBadges();
+    }
+
+    // Update score display
+    function updateScoreDisplay() {
+      elements.scoreValue.textContent = currentState.score;
+      elements.finalScoreValue.textContent = currentState.score;
+      const totalQuestions = currentState.currentCategory ? currentState.currentCategory.questions.length : 5;
+      const percentage = (currentState.score / totalQuestions) * 100;
+      
+      let complimentIndex;
+      if (percentage >= 90) {
+        complimentIndex = 0;
+      } else if (percentage >= 70) {
+        complimentIndex = 1;
+      } else if (percentage >= 50) {
+        complimentIndex = 2;
+      } else {
+        complimentIndex = 3;
+      }
+      
+      const compliment = kidsDatabase.compliments[complimentIndex];
+      elements.complimentText.textContent = compliment;
+      elements.finalComplimentText.textContent = compliment;
+    }
+
+    // Move to next question
+    function nextQuestion() {
+      currentState.answeredQuestions++;
+      
+      if (currentState.currentQuestionIndex < currentState.currentCategory.questions.length - 1) {
+        currentState.currentQuestionIndex++;
+        currentState.selectedAnswer = null;
+        renderQuestion();
+      } else {
+        endQuiz();
+      }
+    }
+
+    // Move to previous question
+    function prevQuestion() {
+      if (currentState.currentQuestionIndex > 0) {
+        currentState.currentQuestionIndex--;
+        currentState.selectedAnswer = null;
+        renderQuestion();
+      }
+    }
+
+    // End the quiz and show results
+    function endQuiz() {
+      checkForBadges();
+      
+      elements.quizView.style.display = 'none';
+      elements.resultsView.style.display = 'block';
+      elements.categoryView.style.display = 'none';
+      elements.badgesView.style.display = 'block';
+      elements.exitBtn.style.display = 'block';
+      elements.lockBtn.style.display = 'block';
+      
+      updateScoreDisplay();
+    }
+
+    // Retake quiz
+    function retakeQuiz() {
+      startQuiz(currentState.currentCategory);
+    }
+
+    // Show a random fun fact
+    function showRandomFunFact() {
+      const randomIndex = Math.floor(Math.random() * kidsDatabase.funFacts.length);
+      const fact = kidsDatabase.funFacts[randomIndex];
+      showFunFact(fact.text, fact.image);
+    }
+
+    // Show a specific fun fact
+    function showFunFact(text, image) {
+      const factText = currentState.currentLanguage === 'sw' ? 
+        text.split(' / ')[1] || text.split(' / ')[0] : 
+        text.split(' / ')[0];
+      
+      elements.funFactText.textContent = factText;
+      
+      if (image) {
+        elements.funFactImage.src = image;
+        elements.funFactImage.style.display = 'block';
+      } else {
+        elements.funFactImage.style.display = 'none';
+      }
+      
+      elements.funFactText.classList.add('slide-in');
+      elements.funFactImage.classList.add('slide-in');
+      
+      setTimeout(() => {
+        elements.funFactText.classList.remove('slide-in');
+        elements.funFactImage.classList.remove('slide-in');
+      }, 500);
+    }
+
+    // Speak or stop the current fun fact
+    function speakFunFact() {
+      if (!currentState.audioOn) return;
+      
+      if (currentState.isSpeaking) {
+        window.speechSynthesis.cancel();
+        currentState.isSpeaking = false;
+        elements.hearFactBtn.textContent = '🔊 Hear It';
+      } else if ('speechSynthesis' in window) {
+        const utterance = new SpeechSynthesisUtterance(elements.funFactText.textContent);
+        utterance.rate = 0.9;
+        utterance.pitch = 1.2;
+        utterance.onend = () => {
+          currentState.isSpeaking = false;
+          elements.hearFactBtn.textContent = '🔊 Hear It';
+        };
+        window.speechSynthesis.speak(utterance);
+        currentState.isSpeaking = true;
+        elements.hearFactBtn.textContent = '⏹️ Stop Audio';
+      } else {
+        alert("Your browser doesn't support text-to-speech. Try Chrome or Edge!");
+      }
+    }
+
+    // Update the star count display
+    function updateStarDisplay() {
+      elements.starCount.textContent = currentState.stars;
+    }
+
+    // Render earned and placeholder badges
+    function renderBadges() {
+      elements.badgeContainer.innerHTML = '';
+      
+      kidsDatabase.placeholderBadges.forEach(badge => {
+        const isEarned = currentState.badges.some(b => b.id === badge.id);
+        const badgeElement = document.createElement('div');
+        badgeElement.className = `badge ${isEarned ? '' : 'unearned'}`;
+        badgeElement.innerHTML = `
+          <span class="badge-emoji">${badge.emoji}</span>
+          <span>${badge.name}</span>
+        `;
+        elements.badgeContainer.appendChild(badgeElement);
+      });
+    }
+
+    // Render gallery cards
+    function renderGalleryCards() {
+      elements.galleryGrid.innerHTML = '';
+      
+      kidsDatabase.galleryCards.forEach((card, index) => {
+        const cardElement = document.createElement('div');
+        cardElement.className = 'gallery-card';
+        cardElement.id = `galleryCard-${index}`;
+        
+        cardElement.innerHTML = `
+          <div class="gallery-card-inner">
+            <div class="gallery-card-front">
+              <div class="gallery-card-emoji">${card.front.emoji}</div>
+              <div>${card.front.text}</div>
+            </div>
+            <div class="gallery-card-back">
+              <div class="gallery-card-emoji">${card.back.emoji}</div>
+              <div>${card.back.text}</div>
+            </div>
+          </div>
+        `;
+        
+        cardElement.addEventListener('click', () => {
+          cardElement.classList.toggle('flipped');
+        });
+        
+        elements.galleryGrid.appendChild(cardElement);
+      });
+    }
+
+    // Handle idea submission
+    function handleIdeaSubmit(e) {
+      e.preventDefault();
+      
+      const idea = elements.ideaInput.value.trim();
+      if (idea) {
+        currentState.sharedIdeas.push(idea);
+        localStorage.setItem('sharedIdeas', JSON.stringify(currentState.sharedIdeas));
+        elements.ideaInput.value = '';
+        
+        alert("Thanks for sharing your idea! 🎉");
+        renderSharedIdeas();
+      }
+    }
+
+    // Render shared ideas
+    function renderSharedIdeas() {
+      console.log("Shared Ideas:", currentState.sharedIdeas);
+    }
+
+    // Check if player earned any badges
+    function checkForBadges() {
+      const category = currentState.currentCategory;
+      const questionsInCategory = category.questions.length;
+      const correctInCategory = currentState.score;
+      
+      if (correctInCategory >= category.badge.threshold) {
+        const hasBadge = currentState.badges.some(b => b.id === category.id);
+        if (!hasBadge) {
+          currentState.badges.push({
+            id: category.id,
+            name: category.badge.name,
+            emoji: category.badge.emoji
+          });
+          localStorage.setItem('safariBadges', JSON.stringify(currentState.badges));
+          
+          showFunFact(`Congratulations! You earned the ${category.badge.name} badge! 🎉`, null);
+          
+          confetti({
+            particleCount: 200,
+            spread: 100,
+            origin: { y: 0.6 }
+          });
+        }
+      }
+      renderBadges();
+    }
+
+    // Toggle parental lock
+    function toggleParentalLock() {
+      currentState.locked = !currentState.locked;
+      localStorage.setItem('kidsModeLocked', currentState.locked);
+      updateLockState();
+    }
+
+    // Update lock state UI
+    function updateLockState() {
+      if (currentState.locked) {
+        elements.lockBtn.innerHTML = '<i class="fas fa-lock-open"></i>';
+        elements.lockIcon.style.display = 'inline';
+      } else {
+        elements.lockBtn.innerHTML = '<i class="fas fa-lock"></i>';
+        elements.lockIcon.style.display = 'none';
+      }
+      elements.lockBtn.style.display = 'block';
+    }
+
+    // Handle Janjez AI question
+    function handleJanjezQuestion() {
+      const question = elements.janjezInput.value.trim();
+      if (!question) return;
+      
+      const responses = [
+        "That's a great question! Kenya is full of amazing things to learn about.",
+        "I love that you're curious about Kenya! Did you know Kenya has over 50 national parks?",
+        "Hmm, let me think... Kenya is famous for its wildlife, beautiful landscapes, and rich culture!",
+        "What an interesting question! Maybe you can visit Kenya someday to find out more!"
+      ];
+      
+      const randomResponse = responses[Math.floor(Math.random() * responses.length)];
+      elements.janjezResponse.textContent = randomResponse;
+      elements.janjezResponse.style.display = 'block';
+      elements.janjezInput.value = '';
+      
+      if (currentState.audioOn && 'speechSynthesis' in window) {
+        const utterance = new SpeechSynthesisUtterance(randomResponse);
+        utterance.rate = 0.9;
+        utterance.pitch = 1.2;
+        utterance.onend = () => {
+          currentState.isSpeaking = false;
+          elements.hearFactBtn.textContent = '🔊 Hear It';
+        };
+        window.speechSynthesis.speak(utterance);
+        currentState.isSpeaking = true;
+        elements.hearFactBtn.textContent = '⏹️ Stop Audio';
+      }
+    }
+
+    // Load personalization settings
+    function loadPersonalization() {
+      elements.playerNameInput.value = currentState.playerName;
+      
+      const avatarOptions = document.querySelectorAll('.avatar-option');
+      avatarOptions.forEach(option => {
+        if (option.dataset.avatar === currentState.playerAvatar) {
+          option.classList.add('selected');
+        } else {
+          option.classList.remove('selected');
+        }
+      });
+    }
+
+    // Save personalization settings
+    function savePersonalization(e) {
+      e.preventDefault();
+      
+      const newName = elements.playerNameInput.value.trim() || 'Explorer';
+      const selectedAvatar = document.querySelector('.avatar-option.selected')?.dataset.avatar || '1';
+      
+      currentState.playerName = newName;
+      currentState.playerAvatar = selectedAvatar;
+      
+      localStorage.setItem('playerName', newName);
+      localStorage.setItem('playerAvatar', selectedAvatar);
+      
+      alert("Your settings have been saved! 😊");
+    }
+
+    // Select avatar
+    function selectAvatar(e) {
+      const avatarOptions = document.querySelectorAll('.avatar-option');
+      avatarOptions.forEach(option => option.classList.remove('selected'));
+      e.target.classList.add('selected');
+    }
+
+    // Toggle dark mode
+    function toggleDarkMode(state) {
+      document.body.classList.toggle('dark-mode', state);
+      currentState.darkMode = state;
+      localStorage.setItem('darkMode', state);
+    }
+
+    // Toggle Swahili translation
+    function toggleSwahili() {
+      currentState.currentLanguage = currentState.currentLanguage === 'en' ? 'sw' : 'en';
+      localStorage.setItem('currentLanguage', currentState.currentLanguage);
+      
+      if (currentState.mode === 'quiz') {
+        renderQuestion();
+      }
+      showRandomFunFact();
+      
+      elements.swahiliBtn.innerHTML = currentState.currentLanguage === 'en' ? 
+        '<i class="fas fa-language"></i> Swahili Translation' : 
+        '<i class="fas fa-language"></i> English Translation';
+    }
+
+    // Set up event listeners
+    function setupEventListeners() {
+      elements.nextBtn.addEventListener('click', nextQuestion);
+      elements.prevBtn.addEventListener('click', prevQuestion);
+      elements.nextFactBtn.addEventListener('click', showRandomFunFact);
+      elements.hearFactBtn.addEventListener('click', speakFunFact);
+      elements.exitBtn.addEventListener('click', exitQuiz);
+      elements.lockBtn.addEventListener('click', toggleParentalLock);
+      elements.ideaForm.addEventListener('submit', handleIdeaSubmit);
+      elements.janjezSubmit.addEventListener('click', handleJanjezQuestion);
+      elements.personalizationForm.addEventListener('submit', savePersonalization);
+      elements.darkModeToggle.addEventListener('change', () => toggleDarkMode(elements.darkModeToggle.checked));
+      elements.swahiliBtn.addEventListener('click', toggleSwahili);
+      elements.retakeBtn.addEventListener('click', retakeQuiz);
+      
+      document.querySelectorAll('.avatar-option').forEach(avatar => {
+        avatar.addEventListener('click', selectAvatar);
+      });
+      
+      document.addEventListener('keydown', (e) => {
+        if (currentState.mode === 'quiz') {
+          if (e.key === 'ArrowRight') {
+            if (!elements.nextBtn.disabled) elements.nextBtn.click();
+          } else if (e.key === 'ArrowLeft') {
+            if (!elements.prevBtn.disabled) elements.prevBtn.click();
+          }
+        }
+      });
+    }
+
+    // Initialize the game when loaded
+    window.addEventListener('DOMContentLoaded', init);
+  </script>
+</body>
+</html>
